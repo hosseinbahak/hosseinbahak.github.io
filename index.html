@@ -17,8 +17,9 @@
             background-color: #f4f7fa;
             color: #333;
             line-height: 1.6;
-            padding-top: 50px; /* Space for fixed header */
+            padding-top: 50px;
             overflow-x: hidden;
+            transition: background-color 0.3s ease;
         }
 
         /* Header Styling */
@@ -50,7 +51,20 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            padding-top: 80px; /* Adjusts for fixed header */
+            padding-top: 80px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Section Styling */
@@ -61,6 +75,19 @@
             margin-bottom: 30px;
             padding: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInSection 1s ease-out forwards;
+        }
+
+        @keyframes fadeInSection {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         section:hover {
@@ -74,6 +101,7 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
         h3 {
@@ -153,6 +181,7 @@
             text-align: center;
             font-size: 1rem;
             margin-top: 30px;
+            animation: fadeIn 1s ease-out;
         }
 
         /* Media Queries for Responsiveness */
