@@ -6,101 +6,78 @@
     <title>Hossein Bahak</title>
     <!-- Font Awesome CDN for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
     <style>
-        /* Global Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            background-color: #f0f4f8;
-            color: #333;
-            padding-top: 50px; /* Adjusts for fixed header */
+            background-color: #f4f4f4;
+            padding-top: 50px; /* To prevent content being hidden behind fixed header */
         }
 
-        /* Header Styling */
         header {
             background-color: #4CAF50;
             color: white;
             padding: 20px 0;
             text-align: center;
             position: fixed;
+            width: 100%;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
         }
+
         header h1 {
             font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
-        header p {
-            font-size: 1.1rem;
         }
 
-        /* Main Content Container */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            padding-top: 80px; /* Adjusts for fixed header */
+            padding-top: 80px;
         }
 
-        /* Section Styling */
         section {
-            margin-bottom: 30px;
-            padding: 25px;
+            margin-bottom: 40px;
             background-color: white;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: #333;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-            color: #4CAF50;
-        }
-
-        p {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.6;
         }
 
         /* Contact Section */
         .contact-info {
             background-color: #4CAF50;
-            padding: 50px 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 50px;
             text-align: center;
-            margin-top: 30px;
-            transition: transform 0.4s, box-shadow 0.3s;
+            border-radius: 15px;
+            margin-top: 40px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
         }
 
         .contact-info:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .contact-info h2 {
             color: white;
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
         }
 
-        .contact-info .contact-icons {
+        .contact-icons {
             display: flex;
             justify-content: center;
             gap: 30px;
@@ -110,16 +87,16 @@
         .contact-info a {
             background-color: white;
             color: #4CAF50;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             padding: 20px;
             border-radius: 50%;
             transition: background-color 0.3s, transform 0.3s;
-            text-decoration: none;
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-decoration: none;
         }
 
         .contact-info a:hover {
@@ -132,33 +109,30 @@
             transform: scale(1);
         }
 
-        /* Footer Styling */
         footer {
             background-color: #333;
             color: white;
-            padding: 15px 0;
+            padding: 20px;
             text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
 
-        /* Media Queries for Responsiveness */
         @media screen and (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
             }
 
-            .container {
-                padding: 15px;
-            }
-
             .contact-info {
-                padding: 30px 15px;
+                padding: 40px 20px;
             }
 
             .contact-info a {
-                font-size: 1.5rem;
-                padding: 15px;
+                font-size: 1.8rem;
                 width: 60px;
                 height: 60px;
+                padding: 15px;
             }
         }
     </style>
@@ -170,6 +144,7 @@
     </header>
 
     <div class="container">
+        <!-- Other sections (About Me, Education, etc.) here -->
         <section class="about-me">
             <h2>About Me</h2>
             <p>Linux and FOSS fan, familiar with project management and clean code methods. I have a strong interest in AI, particularly in machine learning and data mining. I am dedicated to improving my skills and becoming an expert developer in my field. I have completed courses in data structure, algorithm design, and design patterns, focusing on C++ and Python. Some of my open-source projects are available on my GitHub account.</p>
@@ -183,8 +158,10 @@
             <p>Semnan University, 2017 – 2021</p>
         </section>
 
+        <!-- Updated Work Experience Section -->
         <section class="work-experience">
             <h2>Work Experience</h2>
+            
             <h3>Radshid Company (2024-present) - ML Engineer</h3>
             <p>Worked on developing machine learning models and data pipelines. Contributed to projects involving natural language processing, data analysis, and model optimization. As Computer Vision Developer, I have enhanced numerous product images by reducing noise and removing extraneous components, leveraging frameworks like PyTorch, ResNet, and diffusion models. As NLP Engineer, I am working on a locally hosted chatbot developed focused on LLMs and SLMs using LangGraph, designed for multi-phase answer generation.</p>
 
@@ -211,7 +188,33 @@
             <p>Developed a graphical user interface translator application using QT (C++), powered by the Yandex API, to translate multiple languages.</p>
         </section>
 
-        <!-- Enhanced Contact Information Section -->
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Programming Languages: Python (Django, WebSocket, Django Channels, Pandas, NumPy), PHP (Laravel)</li>
+                <li>Databases: MySQL, SQL Server, Redis, MongoDB</li>
+                <li>Operating Systems: Windows, Linux (Lpic1)</li>
+                <li>Big Data: Apache Hadoop, PySpark, Kafka, Elastic Search</li>
+                <li>Tools: Git, Celery, Docker</li>
+            </ul>
+        </section>
+
+        <section class="research">
+            <h2>Research</h2>
+            <p>I have been deeply involved in research focused on artificial intelligence, particularly in the fields of machine learning and natural language processing. My work has included pioneering research in Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) frameworks. I have contributed to the development of advanced data processing architectures and led workshops on prompt engineering and fine-tuning LLMs.</p>
+            <p>You can find my research publications and citations on my <a href="https://scholar.google.com/citations?user=6Swd-2sAAAAJ&hl=en">Google Scholar Profile</a>.</p>
+        </section>
+
+        <section class="courses">
+            <h2>Courses</h2>
+            <ul>
+                <li>Udemy - Data Structures & Algorithms - Python</li>
+                <li>Udemy - The Complete Python Developer</li>
+                <li>Coursera - Machine Learning</li>
+                <li>7Learn - Django Expert</li>
+            </ul>
+        </section>
+        <!-- Enhanced Contact Section -->
         <section class="contact-info">
             <h2>Contact Me</h2>
             <div class="contact-icons">
@@ -219,8 +222,13 @@
                 <a href="https://github.com/hosseinbahak" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="http://www.t.me/hosseinbahak" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                <!-- Google Scholar Icon Link -->
+                <a href="https://scholar.google.com/citations?user=6Swd-2sAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fab fa-google"></i></a>
             </div>
         </section>
+
+
+        <!-- Add other sections here -->
     </div>
 
     <footer>
