@@ -5,48 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hossein Bahak</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        /* Global Reset */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
         }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f4f8;
+            color: #333;
+            padding-top: 50px; /* Adjusts for fixed header */
+        }
+
+        /* Header Styling */
         header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
             text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
         }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.1rem;
+        }
+
+        /* Main Content Container */
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
+            padding-top: 80px; /* Adjusts for fixed header */
         }
-        h1, h2, h3 {
-            color: #333;
-        }
-        .contact-info, .social-links {
-            margin-bottom: 20px;
-        }
-        .social-links a {
-            text-decoration: none;
-            color: #333;
-            margin-right: 15px;
-        }
+
+        /* Section Styling */
         section {
-            margin-bottom: 20px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 5px;
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #4CAF50;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Link Styling */
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #333;
+        }
+
+        /* Contact & Social Links */
+        .contact-info, .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .contact-info p, .social-links a {
+            font-size: 1.2rem;
+        }
+
+        .social-links a {
+            font-size: 1.2rem;
+            color: #4CAF50;
+        }
+
+        /* Skills List */
+        .skills ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .skills li {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .skills li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+        }
+
+        /* Footer Styling */
         footer {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
             text-align: center;
-            padding: 10px 0;
-            background: #333;
-            color: #fff;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .contact-info, .social-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills li {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -78,42 +176,23 @@
             <h2>Education</h2>
             <h3>Master of Science, Software Engineering</h3>
             <p>University of Isfahan, 2022 – 2024</p>
-
             <h3>Bachelor of Science, Computer Engineering</h3>
             <p>Semnan University, 2017 – 2021</p>
         </section>
 
         <section class="work-experience">
             <h2>Work Experience</h2>
-            
             <h3>Radshid Company (2024-present) - ML Engineer</h3>
-            <p>Worked on developing machine learning models and data pipelines. Contributed to projects involving natural language processing, data analysis, and model optimization.
-            As Computer Vision Developer, I have enhanced numerous product images by reducing noise and removing extraneous components, leveraging frameworks like PyTorch, ResNet, and diffusion models.
-            As NLP Engineer, I am working on a locally hosted chatbot developed focused on LLMs and SLMs using LangGraph, designed for multi-phase answer generation.
-            </p>
-
+            <p>Worked on developing machine learning models and data pipelines. Contributed to projects involving natural language processing, data analysis, and model optimization. As Computer Vision Developer, I have enhanced numerous product images by reducing noise and removing extraneous components, leveraging frameworks like PyTorch, ResNet, and diffusion models. As NLP Engineer, I am working on a locally hosted chatbot developed focused on LLMs and SLMs using LangGraph, designed for multi-phase answer generation.</p>
+            
             <h3>Big Data Group, University of Isfahan (2023-present) - Researcher</h3>
             <p>Conducted pioneering research in Big Data, specializing in Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) frameworks, including LangChain. Proficiently contributed to the development of the Bard architecture, enhancing data processing capabilities. Led a workshop on prompt engineering and fine-tuning of LLMs, showcasing leadership and knowledge-sharing within the academic community.</p>
 
             <h3>Chehelsotun Company (2023-present) - Back-end Developer</h3>
-            <p>Back-end team member, focusing on Django Rest Framework (DRF). Developed Codato, a platform for buying products with better offers, providing a 60% gift on the total price of invoices. The platform is available at <a href="http://codato.kartaak.ir/">codat.com</a>.</p>
-            <p>Also worked with the PHP (Laravel) team on Kartaak, a store project that helps people buy daily products at cheaper rates. The platform is accessible at <a href="https://app.kartaak.com">app.kartaak.com</a>.</p>
+            <p>Back-end team member, focusing on Django Rest Framework (DRF). Developed Codato, a platform for buying products with better offers, providing a 60% gift on the total price of invoices. The platform is available at <a href="http://codato.kartaak.ir/">Codato</a>.</p>
 
             <h3>Espadana Company (2022-2023) - Back-end Developer</h3>
-            
-            <p>Worked on an online service provider platform, Dosma, which connects customers with experts in various fields. The platform is available at <a href="https://app.dosma.ir">app.dosma.ir</a>.</p>
-
-            <h3>Online Advertiser Company (2020-2021) - Django Developer</h3>
-            <p>Developed a commercial Django website showcasing the company's activities. The website is available at <a href="https://onlineadvertiser.net">onlineadvertiser.net</a>.</p>
-            <p>Developed a PHP API for a gamification project used in Iran Mall, allowing users to sign up and engage in random actions for rewards.</p>
-
-            <h3>Semnan University (2019-2020) - Developer</h3>
-            <p>Developed Nesha, a Django Rest Framework (DRF) application that serves as a laboratory simulator for university courses, helping students learn about software requirements and installation processes for various laboratory equipment.</p>
-            <p>Developed a rest full video introducer website like IMDb, with additional features like a suggestion section, using Django.</p>
-
-            <h3>Other Projects</h3>
-            <p>Developed Malango podcast, a PHP-based Android application containing podcasts in various categories. Users can sign up, customize categories, and interact with content.</p>
-            <p>Developed a graphical user interface translator application using QT (C++), powered by the Yandex API, to translate multiple languages.</p>
+            <p>Worked on an online service provider platform, Dosma, which connects customers with experts in various fields. The platform is available at <a href="https://app.dosma.ir">Dosma</a>.</p>
         </section>
 
         <section class="skills">
