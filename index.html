@@ -15,8 +15,9 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9; /* Light background color */
             padding-top: 50px; /* To prevent content being hidden behind fixed header */
+            color: #333; /* Dark text for better readability */
         }
 
         header {
@@ -32,27 +33,75 @@
 
         header h1 {
             font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            font-weight: 300;
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: 80px;
+            padding-top: 80px; /* Account for fixed header */
         }
 
         section {
             margin-bottom: 40px;
             background-color: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px); /* Slight upward hover effect */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 20px;
             color: #333;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555; /* Slightly lighter text for paragraph */
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #333;
+        }
+
+        /* Skills Section */
+        .skills ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .skills li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #555;
         }
 
         /* Contact Section */
@@ -124,6 +173,18 @@
                 font-size: 2rem;
             }
 
+            header p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding-top: 90px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
             .contact-info {
                 padding: 40px 20px;
             }
@@ -144,12 +205,13 @@
     </header>
 
     <div class="container">
-        <!-- Other sections (About Me, Education, etc.) here -->
+        <!-- About Me Section -->
         <section class="about-me">
             <h2>About Me</h2>
             <p>Linux and FOSS fan, familiar with project management and clean code methods. I have a strong interest in AI, particularly in machine learning and data mining. I am dedicated to improving my skills and becoming an expert developer in my field. I have completed courses in data structure, algorithm design, and design patterns, focusing on C++ and Python. Some of my open-source projects are available on my GitHub account.</p>
         </section>
 
+        <!-- Education Section -->
         <section class="education">
             <h2>Education</h2>
             <h3>Master of Science, Software Engineering</h3>
@@ -158,7 +220,7 @@
             <p>Semnan University, 2017 – 2021</p>
         </section>
 
-        <!-- Updated Work Experience Section -->
+        <!-- Work Experience Section -->
         <section class="work-experience">
             <h2>Work Experience</h2>
             
@@ -175,19 +237,12 @@
             <h3>Espadana Company (2022-2023) - Back-end Developer</h3>
             <p>Worked on an online service provider platform, Dosma, which connects customers with experts in various fields. The platform is available at <a href="https://app.dosma.ir">Dosma</a>.</p>
 
-            <h3>Online Advertiser Company (2020-2021) - Django Developer</h3>
-            <p>Developed a commercial Django website showcasing the company's activities. The website is available at <a href="https://onlineadvertiser.net">onlineadvertiser.net</a>.</p>
-            <p>Developed a PHP API for a gamification project used in Iran Mall, allowing users to sign up and engage in random actions for rewards.</p>
-
-            <h3>Semnan University (2019-2020) - Developer</h3>
-            <p>Developed Nesha, a Django Rest Framework (DRF) application that serves as a laboratory simulator for university courses, helping students learn about software requirements and installation processes for various laboratory equipment.</p>
-            <p>Developed a rest full video introducer website like IMDb, with additional features like a suggestion section, using Django.</p>
-
             <h3>Other Projects</h3>
             <p>Developed Malango podcast, a PHP-based Android application containing podcasts in various categories. Users can sign up, customize categories, and interact with content.</p>
             <p>Developed a graphical user interface translator application using QT (C++), powered by the Yandex API, to translate multiple languages.</p>
         </section>
 
+        <!-- Skills Section -->
         <section class="skills">
             <h2>Skills</h2>
             <ul>
@@ -199,12 +254,14 @@
             </ul>
         </section>
 
+        <!-- Research Section -->
         <section class="research">
             <h2>Research</h2>
             <p>I have been deeply involved in research focused on artificial intelligence, particularly in the fields of machine learning and natural language processing. My work has included pioneering research in Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) frameworks. I have contributed to the development of advanced data processing architectures and led workshops on prompt engineering and fine-tuning LLMs.</p>
             <p>You can find my research publications and citations on my <a href="https://scholar.google.com/citations?user=6Swd-2sAAAAJ&hl=en">Google Scholar Profile</a>.</p>
         </section>
 
+        <!-- Courses Section -->
         <section class="courses">
             <h2>Courses</h2>
             <ul>
@@ -214,7 +271,8 @@
                 <li>7Learn - Django Expert</li>
             </ul>
         </section>
-        <!-- Enhanced Contact Section -->
+
+        <!-- Contact Section -->
         <section class="contact-info">
             <h2>Contact Me</h2>
             <div class="contact-icons">
@@ -222,13 +280,9 @@
                 <a href="https://github.com/hosseinbahak" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="http://www.t.me/hosseinbahak" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-                <!-- Google Scholar Icon Link -->
                 <a href="https://scholar.google.com/citations?user=6Swd-2sAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fab fa-google"></i></a>
             </div>
         </section>
-
-
-        <!-- Add other sections here -->
     </div>
 
     <footer>
