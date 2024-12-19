@@ -11,35 +11,40 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            background-color: #f0f4f8;
+            background-color: #f4f7fa;
             color: #333;
-            padding-top: 50px; /* Adjusts for fixed header */
+            line-height: 1.6;
+            padding-top: 50px; /* Space for fixed header */
+            overflow-x: hidden;
         }
 
         /* Header Styling */
         header {
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #4CAF50, #81C784);
             color: white;
-            padding: 20px 0;
-            text-align: center;
+            padding: 20px;
             position: fixed;
+            width: 100%;
             top: 0;
             left: 0;
-            right: 0;
             z-index: 1000;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
-        header p {
-            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Main Content Container */
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Main Container */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -50,22 +55,30 @@
 
         /* Section Styling */
         section {
-            margin-bottom: 30px;
-            padding: 25px;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
         }
 
         h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
             color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         h3 {
             font-size: 1.5rem;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #4CAF50;
         }
 
@@ -73,32 +86,43 @@
             font-size: 1.1rem;
             color: #555;
             line-height: 1.6;
+            margin-bottom: 15px;
         }
 
-        /* Link Styling */
+        /* Links */
         a {
             color: #4CAF50;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         a:hover {
             color: #333;
+            transform: scale(1.05);
         }
 
-        /* Contact & Social Links */
-        .contact-info, .social-links {
+        /* Contact and Social Links */
+        .contact-info,
+        .social-links {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
-        .contact-info p, .social-links a {
-            font-size: 1.2rem;
-        }
 
         .social-links a {
-            font-size: 1.2rem;
-            color: #4CAF50;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #388E3C;
+            transform: scale(1.1);
         }
 
         /* Skills List */
@@ -106,12 +130,14 @@
             list-style-type: none;
             padding-left: 0;
         }
+
         .skills li {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            padding-left: 20px;
+            font-size: 1.2rem;
+            padding-left: 25px;
             position: relative;
+            margin-bottom: 10px;
         }
+
         .skills li::before {
             content: '✔';
             position: absolute;
@@ -125,21 +151,27 @@
             color: white;
             padding: 15px 0;
             text-align: center;
+            font-size: 1rem;
+            margin-top: 30px;
         }
 
         /* Media Queries for Responsiveness */
-        @media screen and (max-width: 768px) {
+        @media (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
             }
 
             .container {
-                padding: 15px;
+                padding: 20px;
             }
 
-            .contact-info, .social-links {
+            section {
+                padding: 20px;
+            }
+
+            .contact-info,
+            .social-links {
                 flex-direction: column;
-                align-items: flex-start;
             }
 
             .skills li {
@@ -155,23 +187,27 @@
     </header>
 
     <div class="container">
+        <!-- Contact Information -->
         <section class="contact-info">
             <h2>Contact Information</h2>
             <p>Email: <a href="mailto:hossein.bahak@gmail.com">hossein.bahak@gmail.com</a></p>
         </section>
 
+        <!-- Social Links -->
         <section class="social-links">
             <h2>Social Links</h2>
-            <a href="https://github.com/hosseinbahak">GitHub</a>
-            <a href="https://www.linkedin.com/in/hosseinbahak/">LinkedIn</a>
-            <a href="http://www.t.me/hosseinbahak">Telegram</a>
+            <a href="https://github.com/hosseinbahak" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank">LinkedIn</a>
+            <a href="http://www.t.me/hosseinbahak" target="_blank">Telegram</a>
         </section>
 
+        <!-- About Me -->
         <section class="about-me">
             <h2>About Me</h2>
             <p>Linux and FOSS fan, familiar with project management and clean code methods. I have a strong interest in AI, particularly in machine learning and data mining. I am dedicated to improving my skills and becoming an expert developer in my field. I have completed courses in data structure, algorithm design, and design patterns, focusing on C++ and Python. Some of my open-source projects are available on my GitHub account.</p>
         </section>
 
+        <!-- Education -->
         <section class="education">
             <h2>Education</h2>
             <h3>Master of Science, Software Engineering</h3>
@@ -180,52 +216,33 @@
             <p>Semnan University, 2017 – 2021</p>
         </section>
 
+        <!-- Work Experience -->
         <section class="work-experience">
             <h2>Work Experience</h2>
             <h3>Radshid Company (2024-present) - ML Engineer</h3>
             <p>Worked on developing machine learning models and data pipelines. Contributed to projects involving natural language processing, data analysis, and model optimization. As Computer Vision Developer, I have enhanced numerous product images by reducing noise and removing extraneous components, leveraging frameworks like PyTorch, ResNet, and diffusion models. As NLP Engineer, I am working on a locally hosted chatbot developed focused on LLMs and SLMs using LangGraph, designed for multi-phase answer generation.</p>
-            
+
             <h3>Big Data Group, University of Isfahan (2023-present) - Researcher</h3>
             <p>Conducted pioneering research in Big Data, specializing in Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) frameworks, including LangChain. Proficiently contributed to the development of the Bard architecture, enhancing data processing capabilities. Led a workshop on prompt engineering and fine-tuning of LLMs, showcasing leadership and knowledge-sharing within the academic community.</p>
-
-            <h3>Chehelsotun Company (2023-present) - Back-end Developer</h3>
-            <p>Back-end team member, focusing on Django Rest Framework (DRF). Developed Codato, a platform for buying products with better offers, providing a 60% gift on the total price of invoices. The platform is available at <a href="http://codato.kartaak.ir/">Codato</a>.</p>
-
-            <h3>Espadana Company (2022-2023) - Back-end Developer</h3>
-            <p>Worked on an online service provider platform, Dosma, which connects customers with experts in various fields. The platform is available at <a href="https://app.dosma.ir">Dosma</a>.</p>
         </section>
 
+        <!-- Skills -->
         <section class="skills">
             <h2>Skills</h2>
             <ul>
-                <li>Programming Languages: Python (Django, WebSocket, Django Channels, Pandas, NumPy), PHP (Laravel)</li>
-                <li>Databases: MySQL, SQL Server, Redis, MongoDB</li>
-                <li>Operating Systems: Windows, Linux (Lpic1)</li>
-                <li>Big Data: Apache Hadoop, PySpark, Kafka, Elastic Search</li>
-                <li>Tools: Git, Celery, Docker</li>
+                <li>Python (Django, WebSocket, Pandas, NumPy)</li>
+                <li>PHP (Laravel)</li>
+                <li>MySQL, MongoDB, Redis</li>
+                <li>Linux (Lpic1), Windows</li>
+                <li>Big Data Tools: Hadoop, Kafka, PySpark</li>
+                <li>Docker, Git, Celery</li>
             </ul>
         </section>
 
-        <section class="research">
-            <h2>Research</h2>
-            <p>I have been deeply involved in research focused on artificial intelligence, particularly in the fields of machine learning and natural language processing. My work has included pioneering research in Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) frameworks. I have contributed to the development of advanced data processing architectures and led workshops on prompt engineering and fine-tuning LLMs.</p>
-            <p>You can find my research publications and citations on my <a href="https://scholar.google.com/citations?user=6Swd-2sAAAAJ&hl=en">Google Scholar Profile</a>.</p>
-        </section>
-
-        <section class="courses">
-            <h2>Courses</h2>
-            <ul>
-                <li>Udemy - Data Structures & Algorithms - Python</li>
-                <li>Udemy - The Complete Python Developer</li>
-                <li>Coursera - Machine Learning</li>
-                <li>7Learn - Django Expert</li>
-                <li>LLM Concepts - Sharif Lab</li>
-            </ul>
-        </section>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Hossein Bahak</p>
+        </footer>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Hossein Bahak</p>
-    </footer>
 </body>
 </html>
