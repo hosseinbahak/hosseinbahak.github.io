@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hossein Bahak</title>
+    <!-- Font Awesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <style>
         /* Global Reset */
         * {
@@ -75,27 +78,7 @@
             line-height: 1.6;
         }
 
-        /* Link Styling */
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #333;
-        }
-
-        /* Contact & Social Links */
-        .contact-info {
-            margin-bottom: 30px;
-        }
-
-        .contact-info p {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-
+        /* Social Links */
         .social-links {
             display: flex;
             gap: 20px;
@@ -105,36 +88,17 @@
         .social-links a {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
-            font-size: 1.2rem;
+            padding: 12px 20px;
+            font-size: 1.5rem;
             border-radius: 5px;
             transition: background-color 0.3s, transform 0.3s;
             text-align: center;
             text-decoration: none;
-            width: 150px;
         }
 
         .social-links a:hover {
             background-color: #45a049;
             transform: scale(1.1);
-        }
-
-        /* Skills List */
-        .skills ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .skills li {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .skills li::before {
-            content: '✔';
-            position: absolute;
-            left: 0;
-            color: #4CAF50;
         }
 
         /* Footer Styling */
@@ -143,6 +107,34 @@
             color: white;
             padding: 15px 0;
             text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Contact Section at the Bottom */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-info a {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid #4CAF50;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .contact-info a:hover {
+            background-color: #4CAF50;
+            color: white;
+            transform: scale(1.1);
         }
 
         /* Media Queries for Responsiveness */
@@ -155,18 +147,13 @@
                 padding: 15px;
             }
 
-            .contact-info, .social-links {
+            .contact-info {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
 
             .social-links a {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            .skills li {
-                font-size: 1rem;
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -178,18 +165,6 @@
     </header>
 
     <div class="container">
-        <section class="contact-info">
-            <h2>Contact Information</h2>
-            <p>Email: <a href="mailto:hossein.bahak@gmail.com">hossein.bahak@gmail.com</a></p>
-        </section>
-
-        <section class="social-links">
-            <h2>Social Links</h2>
-            <a href="https://github.com/hosseinbahak" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank">LinkedIn</a>
-            <a href="http://www.t.me/hosseinbahak" target="_blank">Telegram</a>
-        </section>
-
         <section class="about-me">
             <h2>About Me</h2>
             <p>Linux and FOSS fan, familiar with project management and clean code methods. I have a strong interest in AI, particularly in machine learning and data mining. I am dedicated to improving my skills and becoming an expert developer in my field. I have completed courses in data structure, algorithm design, and design patterns, focusing on C++ and Python. Some of my open-source projects are available on my GitHub account.</p>
@@ -241,7 +216,14 @@
         </section>
     </div>
 
+    <!-- Contact Section at the Bottom -->
     <footer>
+        <div class="contact-info">
+            <a href="mailto:hossein.bahak@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/hosseinbahak" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="http://www.t.me/hosseinbahak" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
         <p>&copy; 2024 Hossein Bahak</p>
     </footer>
 </body>
