@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hossein Bahak | AI Developer & Software Engineer</title>
+    <title>Hossein Bahak</title>
     <style>
         /* Global Reset */
         * {
@@ -14,17 +14,10 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
             line-height: 1.6;
-            padding-top: 60px; /* Adjusts for fixed header */
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        /* Dark Mode Toggle */
-        body.dark-mode {
-            background-color: #121212;
-            color: #fff;
+            background-color: #f0f4f8;
+            color: #333;
+            padding-top: 50px; /* Adjusts for fixed header */
         }
 
         /* Header Styling */
@@ -65,22 +58,12 @@
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        body.dark-mode section {
-            background-color: #333;
-            color: #fff;
         }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 15px;
             color: #333;
-        }
-
-        body.dark-mode h2 {
-            color: #fff;
         }
 
         h3 {
@@ -95,19 +78,11 @@
             line-height: 1.6;
         }
 
-        body.dark-mode p {
-            color: #ccc;
-        }
-
         /* Link Styling */
         a {
             color: #4CAF50;
             text-decoration: none;
             transition: color 0.3s ease;
-        }
-
-        body.dark-mode a {
-            color: #81C784;
         }
 
         a:hover {
@@ -125,35 +100,84 @@
             font-size: 1.2rem;
         }
 
-        .social-links a {
-            font-size: 1.2rem;
-            color: #4CAF50;
+        /* Social Links Styling */
+        .social-links {
+            margin-bottom: 30px;
+        }
+
+        .social-links .social-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-links .social-icons a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4CAF50;
+            border-radius: 50%;
             transition: transform 0.3s ease;
         }
 
-        .social-links a:hover {
-            transform: scale(1.1);
-            color: #388E3C;
+        .social-links .social-icons a:hover {
+            transform: scale(1.2);
         }
 
-        /* Skills List */
-        .skills ul {
-            list-style-type: none;
-            padding-left: 0;
+        .social-links .social-icons img {
+            width: 24px;
+            height: 24px;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
         }
 
-        .skills li {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
+        .social-links .social-icons a:hover img {
+            opacity: 0.8;
         }
 
-        .skills li::before {
-            content: '✔';
-            position: absolute;
-            left: 0;
-            color: #4CAF50;
+        /* Contact Form Styling */
+        .contact-info .contact-form {
+            margin-top: 20px;
+        }
+
+        .contact-info .contact-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .contact-info .contact-form label {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .contact-info .contact-form input,
+        .contact-info .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-info .contact-form textarea {
+            resize: vertical;
+        }
+
+        .contact-info .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-info .submit-btn:hover {
+            background-color: #388E3C;
         }
 
         /* Footer Styling */
@@ -162,7 +186,6 @@
             color: white;
             padding: 15px 0;
             text-align: center;
-            font-size: 1rem;
         }
 
         /* Media Queries for Responsiveness */
@@ -184,67 +207,61 @@
                 font-size: 1rem;
             }
         }
-
-        /* Dark Mode Button Styling */
-        .dark-mode-toggle {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .dark-mode-toggle:hover {
-            background-color: #388E3C;
-        }
     </style>
 </head>
 <body>
-    <button class="dark-mode-toggle">Toggle Dark Mode</button>
-
     <header>
         <h1>Hossein Bahak</h1>
-        <p>AI Developer | Python & Django Expert | NLP Researcher</p>
+        <p>Python Developer | Django Developer | NLP Researcher</p>
     </header>
 
     <div class="container">
-        <!-- Contact Information -->
         <section class="contact-info">
             <h2>Contact Information</h2>
-            <p>Email: <a href="mailto:hossein.bahak@gmail.com">hossein.bahak@gmail.com</a></p>
+            <p>If you'd like to reach out, feel free to email me or use the form below.</p>
+            <div class="contact-details">
+                <p>Email: <a href="mailto:hossein.bahak@gmail.com">hossein.bahak@gmail.com</a></p>
+            </div>
+
+            <!-- Contact Form -->
+            <form class="contact-form" action="#" method="post">
+                <h3>Send Me a Message</h3>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </section>
 
-        <!-- Social Links -->
         <section class="social-links">
-            <h2>Social Links</h2>
-            <a href="https://github.com/hosseinbahak" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank">LinkedIn</a>
-            <a href="http://www.t.me/hosseinbahak" target="_blank">Telegram</a>
+            <h2>Connect with Me</h2>
+            <div class="social-icons">
+                <a href="https://github.com/hosseinbahak" target="_blank" title="GitHub">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank" title="LinkedIn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo_2023.png" alt="LinkedIn" />
+                </a>
+                <a href="http://www.t.me/hosseinbahak" target="_blank" title="Telegram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Telegram_2019_logo.svg" alt="Telegram" />
+                </a>
+            </div>
         </section>
 
-        <!-- About Me -->
         <section class="about-me">
             <h2>About Me</h2>
-            <p>Linux and FOSS enthusiast, passionate about AI, Machine Learning, and Data Science. I have a deep interest in exploring new technologies, especially in Natural Language Processing (NLP), and have worked extensively with various ML frameworks. As a Software Engineering student, I am constantly enhancing my skills and exploring new ways to innovate.</p>
+            <p>Linux and FOSS fan, familiar with project management and clean code methods. I have a strong interest in AI, particularly in machine learning and data mining. I am dedicated to improving my skills and becoming an expert developer in my field. I have completed courses in data structure, algorithm design, and design patterns, focusing on C++ and Python. Some of my open-source projects are available on my GitHub account.</p>
         </section>
 
-        <!-- AI Projects -->
-        <section class="ai-projects">
-            <h2>AI/ML Projects</h2>
-            <p>Here are some of the AI and Machine Learning projects I have worked on:</p>
-            <ul>
-                <li><strong>Chatbot Development</strong>: Built an NLP-based chatbot using transformer models like GPT-3 and fine-tuned it for multiple domains.</li>
-                <li><strong>AI-Powered Image Enhancer</strong>: Developed an image enhancement tool using convolutional neural networks (CNNs) to reduce noise and improve image quality.</li>
-                <li><strong>Text Generation with LSTM</strong>: Created a text generation model based on Long Short-Term Memory networks (LSTM) for creative content generation.</li>
-            </ul>
-        </section>
-
-        <!-- Education -->
         <section class="education">
             <h2>Education</h2>
             <h3>Master of Science, Software Engineering</h3>
@@ -253,21 +270,46 @@
             <p>Semnan University, 2017 – 2021</p>
         </section>
 
-        <!-- Research and Publications -->
-        <section class="research">
-            <h2>Research</h2>
-            <p>I am actively involved in research in the fields of machine learning and natural language processing. My work has focused on improving the performance of Large Language Models (LLMs) and designing effective Retrieval-Augmented Generation (RAG) frameworks. You can find my publications and citations on my <a href="https://scholar.google.com/citations?user=6Swd-2sAAAAJ&hl=en">Google Scholar Profile</a>.</p>
+        <section class="work-experience">
+            <h2>Work Experience</h2>
+            <h3>Radshid Company (2024-present) - ML Engineer</h3>
+            <p>Worked on developing machine learning models and data pipelines. Contributed to projects involving natural language processing, data analysis, and model optimization. As Computer Vision Developer, I have enhanced numerous product images by reducing noise and removing extraneous components, leveraging frameworks like PyTorch, ResNet, and diffusion models. As NLP Engineer, I am working on a locally hosted chatbot developed focused on LLMs and SLMs using LangGraph, designed for multi-phase answer generation.</p>
+
+            <h3>Big Data Group, University of Isfahan (2023-present) - Researcher</h3>
+            <p>Conducted pioneering research in Big Data, specializing in Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) frameworks, including LangChain. Proficiently contributed to the development of the Bard architecture, enhancing data processing capabilities. Led a workshop on prompt engineering and fine-tuning of LLMs, showcasing leadership and knowledge-sharing within the academic community.</p>
+
+            <h3>Chehelsotun Company (2023-present) - Back-end Developer</h3>
+            <p>Back-end team member, focusing on Django Rest Framework (DRF). Developed Codato, a platform for buying products with better offers, providing a 60% gift on the total price of invoices. The platform is available at <a href="http://codato.kartaak.ir/">Codato</a>.</p>
+
+            <h3>Espadana Company (2022-2023) - Back-end Developer</h3>
+            <p>Worked on an online service provider platform, Dosma, which connects customers with experts in various fields. The platform is available at <a href="https://app.dosma.ir">Dosma</a>.</p>
         </section>
 
-        <!-- Skills -->
         <section class="skills">
             <h2>Skills</h2>
             <ul>
-                <li>Languages: Python (Django, Flask, Pandas, NumPy), C++, Java</li>
-                <li>ML Frameworks: TensorFlow, PyTorch, Scikit-learn</li>
-                <li>Natural Language Processing: NLTK, SpaCy, HuggingFace</li>
-                <li>Tools: Docker, Git, Jupyter Notebooks</li>
-                <li>Databases: MySQL, MongoDB, PostgreSQL</li>
+                <li>Programming Languages: Python (Django, WebSocket, Django Channels, Pandas, NumPy), PHP (Laravel)</li>
+                <li>Databases: MySQL, SQL Server, Redis, MongoDB</li>
+                <li>Operating Systems: Windows, Linux (Lpic1)</li>
+                <li>Big Data: Apache Hadoop, PySpark, Kafka, Elastic Search</li>
+                <li>Tools: Git, Celery, Docker</li>
+            </ul>
+        </section>
+
+        <section class="research">
+            <h2>Research</h2>
+            <p>I have been deeply involved in research focused on artificial intelligence, particularly in the fields of machine learning and natural language processing. My work has included pioneering research in Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) frameworks. I have contributed to the development of advanced data processing architectures and led workshops on prompt engineering and fine-tuning LLMs.</p>
+            <p>You can find my research publications and citations on my <a href="https://scholar.google.com/citations?user=6Swd-2sAAAAJ&hl=en">Google Scholar Profile</a>.</p>
+        </section>
+
+        <section class="courses">
+            <h2>Courses</h2>
+            <ul>
+                <li>Udemy - Data Structures & Algorithms - Python</li>
+                <li>Udemy - The Complete Python Developer</li>
+                <li>Coursera - Machine Learning</li>
+                <li>7Learn - Django Expert</li>
+                <li>LLM Concepts - Sharif Lab</li>
             </ul>
         </section>
     </div>
@@ -275,13 +317,5 @@
     <footer>
         <p>&copy; 2024 Hossein Bahak</p>
     </footer>
-
-    <script>
-        // Dark Mode Toggle
-        const toggleButton = document.querySelector('.dark-mode-toggle');
-        toggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-    </script>
 </body>
 </html>
