@@ -304,6 +304,48 @@ My GitHub hosts some of my open-source contributions, btw I'm always open to dis
 
     <footer>
         <p>&copy; 2024 Hossein Bahak</p>
+        <!-- Add this div where you want the counter to appear (in the header section) -->
+<div class="visit-counter">
+    <i class="fas fa-eye"></i>
+    <span id="visitCount">0</span> visits
+</div>
+
+<!-- Add these styles in your existing <style> tag -->
+<style>
+    .visit-counter {
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 5px 15px;
+        border-radius: 20px;
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+
+    .visit-counter i {
+        margin-right: 5px;
+    }
+
+    #visitCount {
+        font-weight: bold;
+    }
+</style>
+
+<!-- Add this script before the closing </body> tag -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Fetch the visit count from visits.txt
+        fetch('visits.txt')
+            .then(response => response.text())
+            .then(count => {
+                // Display the count from the file
+                document.getElementById('visitCount').textContent = parseInt(count).toLocaleString();
+            })
+            .catch(error => {
+                console.error('Error loading visit count:', error);
+                document.getElementById('visitCount').textContent = '--';
+            });
+    });
+</script>
     </footer>
 </body>
 </html>
