@@ -365,6 +365,33 @@ My GitHub hosts some of my open-source contributions, btw I'm always open to dis
                 initializeCounter();
             });
         </script>
+        <!-- Add this script before the closing </body> tag -->
+        <script>
+            document.addEventListener('DOMContentLoaded', async function() {
+                try {
+                    // Get visitor's IP
+                    const response = await fetch('https://api.ipify.org?format=json');
+                    const data = await response.json();
+                    const ip = data.ip;
+                    
+                    // Get current timestamp
+                    const timestamp = new Date().toISOString();
+                    
+                    // Create visit data
+                    const visitData = {
+                        ip: ip,
+                        timestamp: timestamp,
+                        userAgent: navigator.userAgent
+                    };
+        
+                    // Send to your logging endpoint (if you decide to set up a server later)
+                    console.log('Visit logged:', visitData);
+                    
+                } catch (error) {
+                    console.error('Error logging visit:', error);
+                }
+            });
+        </script>
     </footer>
 </body>
 </html>
