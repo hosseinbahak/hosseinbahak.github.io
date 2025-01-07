@@ -1,0 +1,5 @@
+# Visitor Log
+# Format: [Timestamp] - IP - User Agent
+
+[2024-01-07 10:00:00] - 192.168.1.1 - Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+[2024-01-07 10:15:00] - 192.168.1.2 - Mozilla/5.0 (Macintosh; Intel Mac OS X)
