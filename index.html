@@ -310,85 +310,35 @@ My GitHub hosts some of my open-source contributions, btw I'm always open to dis
             <i class="fas fa-eye"></i>
             <span id="visitCount">0</span> visits
         </div>
-        <!-- Add this script before the closing </body> tag -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Function to generate a unique visitor ID
-                function generateVisitorId() {
-                    return 'visitor_' + Math.random().toString(36).substr(2, 9);
-                }
-        
-                // Function to check if this is a new visitor
-                function isNewVisitor() {
-                    const visitorId = localStorage.getItem('visitorId');
-                    if (!visitorId) {
-                        localStorage.setItem('visitorId', generateVisitorId());
-                        return true;
-                    }
-                    return false;
-                }
-        
-                // Function to get the base count from visits.txt
-                async function getBaseCount() {
-                    try {
-                        const response = await fetch('visit-count-storage.txt');
-                        const baseCount = await response.text();
-                        return parseInt(baseCount) || 0;
-                    } catch (error) {
-                        console.error('Error loading base count:', error);
-                        return 0;
-                    }
-                }
-        
-                // Function to get additional visits from localStorage
-                function getAdditionalVisits() {
-                    return parseInt(localStorage.getItem('additionalVisits')) || 0;
-                }
-        
-                // Initialize the counter
-                async function initializeCounter() {
-                    const baseCount = await getBaseCount();
-                    let additionalVisits = getAdditionalVisits();
-        
-                    // Check if this is a new visitor
-                    if (isNewVisitor()) {
-                        additionalVisits++;
-                        localStorage.setItem('additionalVisits', additionalVisits);
-                    }
-        
-                    // Calculate and display total visits
-                    const totalVisits = baseCount + additionalVisits;
-                    document.getElementById('visitCount').textContent = totalVisits.toLocaleString();
-                }
-        
-                // Start the counter
-                initializeCounter();
-            });
-        </script>
-        <!-- Add this script before the closing </body> tag -->
         <script>
             document.addEventListener('DOMContentLoaded', async function() {
+                let count = 0;
                 try {
+                    // Read initial count from file
+                    const response = await fetch('visit-count-storage.txt');
+                    const text = await response.text();
+                    count = parseInt(text.trim()) || 0;
+                    
                     // Get visitor's IP
-                    const response = await fetch('https://api.ipify.org?format=json');
-                    const data = await response.json();
-                    const ip = data.ip;
+                    const ipResponse = await fetch('https://api.ipify.org?format=json');
+                    const ipData = await ipResponse.json();
                     
-                    // Get current timestamp
-                    const timestamp = new Date().toISOString();
-                    
-                    // Create visit data
+                    // Log visit to console (since we can't write to file directly)
                     const visitData = {
-                        ip: ip,
-                        timestamp: timestamp,
+                        count: count + 1,
+                        ip: ipData.ip,
+                        timestamp: new Date().toISOString(),
                         userAgent: navigator.userAgent
                     };
-        
-                    // Send to your logging endpoint (if you decide to set up a server later)
+                    
                     console.log('Visit logged:', visitData);
                     
+                    // Update display
+                    document.getElementById('visitCount').textContent = visitData.count;
+                    
                 } catch (error) {
-                    console.error('Error logging visit:', error);
+                    console.error('Error:', error);
+                    document.getElementById('visitCount').textContent = 'Error';
                 }
             });
         </script>
