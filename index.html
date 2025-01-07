@@ -310,42 +310,66 @@ My GitHub hosts some of my open-source contributions, btw I'm always open to dis
     <span id="visitCount">0</span> visits
 </div>
 
-<!-- Add these styles in your existing <style> tag -->
-<style>
-    .visit-counter {
-        background-color: rgba(255, 255, 255, 0.2);
-        padding: 5px 15px;
-        border-radius: 20px;
-        display: inline-block;
-        margin-top: 10px;
-        font-size: 0.9rem;
-    }
-
-    .visit-counter i {
-        margin-right: 5px;
-    }
-
-    #visitCount {
-        font-weight: bold;
-    }
-</style>
-
-<!-- Add this script before the closing </body> tag -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Fetch the visit count from visits.txt
-        fetch('visit-count-storage.txt')
-            .then(response => response.text())
-            .then(count => {
-                // Display the count from the file
-                document.getElementById('visitCount').textContent = parseInt(count).toLocaleString();
-            })
-            .catch(error => {
-                console.error('Error loading visit count:', error);
-                document.getElementById('visitCount').textContent = '--';
+<!-- Add this div where you want the counter to appear (in the header section) -->
+<div class="visit-counter">
+    <i class="fas fa-eye"></i>
+    <span id="visitCount">0</span> visits
+</div>
+        <!-- Add this script before the closing </body> tag -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Function to generate a unique visitor ID
+                function generateVisitorId() {
+                    return 'visitor_' + Math.random().toString(36).substr(2, 9);
+                }
+        
+                // Function to check if this is a new visitor
+                function isNewVisitor() {
+                    const visitorId = localStorage.getItem('visitorId');
+                    if (!visitorId) {
+                        localStorage.setItem('visitorId', generateVisitorId());
+                        return true;
+                    }
+                    return false;
+                }
+        
+                // Function to get the base count from visits.txt
+                async function getBaseCount() {
+                    try {
+                        const response = await fetch('visit-count-storage.txt');
+                        const baseCount = await response.text();
+                        return parseInt(baseCount) || 0;
+                    } catch (error) {
+                        console.error('Error loading base count:', error);
+                        return 0;
+                    }
+                }
+        
+                // Function to get additional visits from localStorage
+                function getAdditionalVisits() {
+                    return parseInt(localStorage.getItem('additionalVisits')) || 0;
+                }
+        
+                // Initialize the counter
+                async function initializeCounter() {
+                    const baseCount = await getBaseCount();
+                    let additionalVisits = getAdditionalVisits();
+        
+                    // Check if this is a new visitor
+                    if (isNewVisitor()) {
+                        additionalVisits++;
+                        localStorage.setItem('additionalVisits', additionalVisits);
+                    }
+        
+                    // Calculate and display total visits
+                    const totalVisits = baseCount + additionalVisits;
+                    document.getElementById('visitCount').textContent = totalVisits.toLocaleString();
+                }
+        
+                // Start the counter
+                initializeCounter();
             });
-    });
-</script>
+        </script>
     </footer>
 </body>
 </html>
