@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hossein Bahak | Software Engineer & Researcher</title>
+    <title>Hossein Bahak | Software Engineer & NLP Enthusiast</title>
     <!-- Font Awesome CDN for icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --primary: #0f172a; /* Deep Navy */
             --secondary: #334155; /* Slate */
             --accent: #0ea5e9; /* Sky Blue */
-            --accent-hover: #0284c7;
+            --accent-dark: #0284c7;
             --bg-light: #f8fafc;
             --white: #ffffff;
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -41,7 +40,7 @@
 
         /* --- Navigation --- */
         nav {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 0;
             position: fixed;
@@ -86,9 +85,9 @@
         header {
             background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
             color: white;
-            padding: 160px 0 100px;
+            padding: 180px 0 120px;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
             margin-bottom: 50px;
         }
 
@@ -103,12 +102,20 @@
         }
 
         header p {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 300;
             color: #cbd5e1;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-top: 10px;
+            display: block;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
         }
 
         .social-hero {
@@ -147,14 +154,13 @@
         }
 
         section:hover {
-            transform: translateY(-3px);
             box-shadow: var(--shadow-md);
         }
 
         h2 {
             font-family: 'Poppins', sans-serif;
             font-size: 2rem;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             color: var(--primary);
             position: relative;
             display: inline-block;
@@ -181,9 +187,16 @@
 
         .subtitle {
             font-size: 0.95rem;
-            color: var(--accent);
-            font-weight: 500;
+            color: var(--accent-dark);
+            font-weight: 600;
             margin-bottom: 15px;
+            display: block;
+        }
+
+        .date-loc {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 10px;
             display: block;
         }
 
@@ -191,42 +204,53 @@
             color: #475569;
             margin-bottom: 15px;
         }
-
-        a.link-accent {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
+        
+        ul.dashed-list {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+        
+        ul.dashed-list li {
             position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #475569;
         }
-
-        a.link-accent::after {
-            content: '';
+        
+        ul.dashed-list li::before {
+            content: '-';
             position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -2px;
             left: 0;
-            background-color: var(--accent);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
+            color: var(--accent);
+            font-weight: bold;
         }
 
-        a.link-accent:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        /* --- Services Grid --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .service-item {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            border: 1px solid #e2e8f0;
         }
 
         /* --- Timeline (Work Experience) --- */
         .timeline-item {
             position: relative;
             padding-left: 30px;
-            margin-bottom: 40px;
+            padding-bottom: 40px;
             border-left: 2px solid #e2e8f0;
         }
 
         .timeline-item:last-child {
-            margin-bottom: 0;
+            padding-bottom: 0;
             border-left: 2px solid transparent; 
         }
 
@@ -241,6 +265,32 @@
             background-color: var(--accent);
             border: 3px solid white;
             box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        /* --- Projects Grid --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        @media(min-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .project-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
         }
 
         /* --- Skills Section --- */
@@ -265,7 +315,6 @@
         .skills li:hover {
             background-color: var(--accent);
             color: white;
-            transform: translateY(-2px);
             border-color: var(--accent);
         }
         
@@ -273,6 +322,16 @@
             font-weight: 700;
             color: var(--secondary);
             margin-right: 5px;
+        }
+
+        /* --- Publication & Honors --- */
+        .pub-item, .honor-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .pub-item:last-child, .honor-item:last-child {
+            border-bottom: none;
         }
 
         /* --- Contact Grid --- */
@@ -321,20 +380,11 @@
             font-size: 0.9rem;
             margin-top: 40px;
         }
-
-        .visit-counter {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255,255,255,0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin-top: 15px;
-            font-size: 0.8rem;
-        }
         
-        .visit-counter i {
-            margin-right: 8px;
+        a.link-accent {
             color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
         }
 
         /* Animations */
@@ -351,7 +401,7 @@
         @media screen and (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
             section { padding: 25px; }
-            .nav-links { display: none; } /* Hide nav links on mobile for simplicity */
+            .nav-links { display: none; } 
         }
     </style>
 </head>
@@ -363,8 +413,9 @@
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#publications">Publications</a>
                 <a href="#skills">Skills</a>
-                <a href="#research">Research</a>
             </div>
         </div>
     </nav>
@@ -372,7 +423,9 @@
     <header>
         <div class="container">
             <h1>Hossein Bahak</h1>
-            <p>Software Engineer | NLP Researcher | ML Enthusiast</p>
+            <p>Software Engineer | NLP Enthusiast | Machine Learning Engineer</p>
+            <span class="location"><i class="fas fa-map-marker-alt"></i> Iran &bull; 500+ Connections</span>
+            
             <div class="social-hero">
                 <a href="https://github.com/hosseinbahak" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -386,37 +439,107 @@
         <!-- About Me Section -->
         <section id="about" class="about-me">
             <h2>About Me</h2>
-            <p>Hi folks! I'm Hossein, a passionate developer and machine learning researcher bridging the gap between Software Engineering and Artificial Intelligence. My journey is driven by a curiosity about how systems work and how technology can solve complex real-world problems.</p>
-            <p>With an academic background in <strong>Computer Engineering (BSc)</strong> and <strong>Software Engineering (MSc)</strong>, I possess a versatile skill set ranging from backend development to scalable machine learning pipelines. I specialize in Python, Django, NLP, and Big Data technologies.</p>
-            <p>Currently, I am an <strong>ML Engineer at Radshid Company</strong> and a <strong>Researcher at the University of Isfahan's Big Data Group</strong>, exploring the frontiers of Large Language Models (LLMs) and Agentic AI.</p>
+            <p>Experienced Software Engineer with a background in the Computer Software industry. Proficient in <strong>Python, C++, and PHP</strong>. I possess a solid foundation in Computer Engineering (Bachelor's degree) and specialized expertise in Software Engineering (Master's degree).</p>
+            <p>Dedicated to continuous learning, I am currently honing my skills in developing <strong>high-level recommender systems and chatbots</strong>, aiming to contribute to the forefront of artificial intelligence and enhance user experiences.</p>
+            
+            <h3 style="margin-top: 30px; font-size: 1.1rem;">Services</h3>
+            <div class="services-grid">
+                <div class="service-item">Application Development</div>
+                <div class="service-item">Web Development</div>
+                <div class="service-item">Database Development</div>
+                <div class="service-item">SaaS Development</div>
+            </div>
         </section>
 
         <!-- Experience Section (Timeline) -->
         <section id="experience" class="work-experience">
-            <h2>Work Experience</h2>
+            <h2>Experience</h2>
             
+            <!-- Radshid -->
             <div class="timeline-item">
-                <h3>ML Engineer</h3>
-                <span class="subtitle">Radshid Company | 2024 - Present</span>
-                <p>Developing and optimizing AI models. As a Computer Vision Developer, I enhance product imagery using PyTorch, ResNet, and diffusion models. As an NLP Engineer, I build locally hosted chatbots utilizing LangGraph for multi-phase answer generation.</p>
+                <h3>Machine Learning Engineer</h3>
+                <span class="subtitle">Radshid Co | Jul 2024 - Present</span>
+                <span class="date-loc">Isfahan, Iran (On-site)</span>
+                <ul class="dashed-list">
+                    <li><strong>Computer Vision:</strong> Enhanced thousands of product images by reducing noise and removing irrelevant elements using PyTorch, ResNet, and diffusion models.</li>
+                    <li><strong>NLP Engineering:</strong> Developing a locally hosted chatbot optimized for LLMs and SLMs, leveraging LangGraph to enable multi-phase answer generation conversational AI workflows.</li>
+                    <li><strong>Automation:</strong> Implemented multiple automation pipelines using n8n and LangGraph for system reporting, content generation, and Telegram-based assistance.</li>
+                </ul>
             </div>
 
+            <!-- Kartaak -->
             <div class="timeline-item">
-                <h3>Researcher</h3>
-                <span class="subtitle">Big Data Group, University of Isfahan | 2023 - 2025</span>
-                <p>Conducting pioneering research in LLMs and RAG frameworks. Contributed to the Bard architecture and led workshops on prompt engineering and fine-tuning.</p>
+                <h3>Head of Server-side Team</h3>
+                <span class="subtitle">Kartaak Co | Jun 2023 - Jan 2025</span>
+                <span class="date-loc">Isfahan, Iran</span>
+                <ul class="dashed-list">
+                    <li>Led the server-side development team, overseeing backend architecture built with Django Rest Framework (DRF).</li>
+                    <li>Focus on developing a recommender system utilizing a <strong>two-tower neural network model</strong>.</li>
+                    <li>Designed algorithms leveraging user experience and behavioral similarity metrics to drive higher user engagement.</li>
+                    <li><strong>DevOps (Jun - Oct 2023):</strong> Dockerized back-end applications for scalability; Configured server environments with Nginx.</li>
+                </ul>
             </div>
 
+            <!-- University of Isfahan -->
             <div class="timeline-item">
-                <h3>Back-end Developer</h3>
-                <span class="subtitle">Chehelsotun Company | 2022 - 2024</span>
-                <p>Developed <a href="http://codato.kartaak.ir/" class="link-accent">Codato</a> using Django Rest Framework (DRF). Contributed to the PHP (Laravel) team for <a href="https://app.kartaak.com" class="link-accent">Kartaak</a>.</p>
+                <h3>Course Instructor</h3>
+                <span class="subtitle">University of Isfahan | Sep 2023 - Feb 2024</span>
+                <span class="date-loc">Isfahan, Iran</span>
+                <p>Instructor for Fundamental programming in C++ and Database systems (MySQL).</p>
             </div>
 
+            <!-- Arosha Tabnak Espadana -->
             <div class="timeline-item">
-                <h3>Back-end Developer</h3>
-                <span class="subtitle">Espadana Company | 2021 - 2022</span>
-                <p>Worked on the <a href="https://app.dosma.ir" class="link-accent">Dosma</a> online service provider platform connecting customers with experts.</p>
+                <h3>Head of Back-end Team</h3>
+                <span class="subtitle">Arosha Tabnak Espadana | Sep 2022 - Jul 2023</span>
+                <span class="date-loc">Isfahan, Iran</span>
+                <ul class="dashed-list">
+                    <li>Spearheaded development of a robust backend using Django & DRF.</li>
+                    <li>Optimized application flow and API performance; Designed comprehensive database schemas.</li>
+                    <li>Pioneered Web Sockets development for order processing.</li>
+                </ul>
+            </div>
+
+            <!-- Semnan University -->
+            <div class="timeline-item">
+                <h3>Teacher Assistant</h3>
+                <span class="subtitle">Semnan University | Jan 2018 - Feb 2019</span>
+                <span class="date-loc">Semnan, Iran</span>
+                <p>Provided guidance in C++ Programming, Compiler Design (CD), and Artificial Intelligence (AI) courses.</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>Data Preparation & Model Integration (LoRA → Ollama)</h3>
+                    <span class="date-loc">Jun 2024 – Nov 2025</span>
+                    <p>Designed a workflow for preparing CSV-based datasets for fine-tuning LLMs using PEFT/LoRA. Automated the conversion of training outputs (adapters) into deployable Ollama models, including GGUF conversion workflows for optimized inference.</p>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>Knowledge Graph from PDFs (OCR → LLM → Neo4j)</h3>
+                    <span class="date-loc">Jul 2024 – Nov 2025</span>
+                    <p>Developed a full-stack document intelligence system. Used BERTopic for semantic grouping and executed automated graph construction to produce Cypher import scripts for a rich Neo4j knowledge graph (concepts, authors, fields).</p>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3>Multi-Agent LLM Judge Framework (MSc Thesis)</h3>
+                    <span class="date-loc">2024 - 2025</span>
+                    <p>A framework deploying four autonomous AI agents with specialized cognitive roles. They independently analyze inputs, engage in structured debates to reach consensus, and include a Sentinel agent for adversarial testing and self-improvement.</p>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <h3>Nesha Laboratory Simulator (BSc Thesis)</h3>
+                    <span class="date-loc">2020 - 2021</span>
+                    <p>A software-based framework for university lab projects during the COVID-19 pandemic. Built with Django Rest Framework (DRF) for backend and ReactJS for frontend.</p>
+                </div>
             </div>
         </section>
 
@@ -424,12 +547,41 @@
         <section class="education">
             <h2>Education</h2>
             <div class="timeline-item">
-                <h3>Master of Science, Software Engineering</h3>
-                <span class="subtitle">University of Isfahan | 2022 – 2024</span>
+                <h3>Master's degree, Computer Software Engineering</h3>
+                <span class="subtitle">University of Isfahan | Sep 2022 – Oct 2025</span>
+                <p><strong>Thesis:</strong> Multi-Agent LLM Judge Framework.</p>
             </div>
             <div class="timeline-item">
-                <h3>Bachelor of Science, Computer Engineering</h3>
-                <span class="subtitle">Semnan University | 2017 – 2021</span>
+                <h3>Bachelor's degree, Computer Engineering</h3>
+                <span class="subtitle">Semnan University | Sep 2017 – Jan 2021</span>
+                <p><strong>Thesis:</strong> Nesh (Laboratory Simulator).</p>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications">
+            <h2>Publications</h2>
+            
+            <div class="pub-item">
+                <h3>Evaluating ChatGPT as a Question Answering System</h3>
+                <span class="subtitle">Journal of Computing and Security (JCS) | Sep 2024</span>
+                <p><em>Awarded Best Paper (Volume 11, Issue 2).</em> A comprehensive analysis and comparison with existing models.</p>
+            </div>
+            
+            <div class="pub-item">
+                <h3>Drug Demand Forecasting</h3>
+                <span class="subtitle">Journal of Medical Signals & Sensors | Feb 2025</span>
+                <p>Presented at Isfahan Artificial Intelligence Event 2023.</p>
+            </div>
+        </section>
+
+        <!-- Honors -->
+        <section id="honors">
+            <h2>Honors & Awards</h2>
+            <div class="honor-item">
+                <h3>Third Place in Artificial Intelligence Competition</h3>
+                <span class="subtitle">National Elites Foundation | Feb 2024</span>
+                <p>Demonstrated AI techniques and problem-solving skills, competing among ~140 teams. Associated with University of Isfahan.</p>
             </div>
         </section>
 
@@ -437,36 +589,18 @@
         <section id="skills" class="skills">
             <h2>Skills</h2>
             <ul>
-                <li><span class="skill-category">Lang:</span> Python (Django, Pandas, NumPy)</li>
-                <li><span class="skill-category">Lang:</span> PHP (Laravel)</li>
-                <li><span class="skill-category">DB:</span> MySQL</li>
-                <li><span class="skill-category">DB:</span> Redis</li>
-                <li><span class="skill-category">DB:</span> MongoDB</li>
-                <li><span class="skill-category">Big Data:</span> Hadoop</li>
-                <li><span class="skill-category">Big Data:</span> PySpark</li>
-                <li><span class="skill-category">Big Data:</span> Kafka</li>
-                <li><span class="skill-category">Big Data:</span> Elastic Search</li>
-                <li><span class="skill-category">Tools:</span> Docker</li>
-                <li><span class="skill-category">Tools:</span> Git</li>
-                <li><span class="skill-category">Tools:</span> Linux (LPIC-1)</li>
+                <li><span class="skill-category">Core:</span> Python, C++, PHP</li>
+                <li><span class="skill-category">AI/ML:</span> PyTorch, ResNet, Diffusion Models, LLMs, LangGraph, Ollama, BERTopic, Computer Vision</li>
+                <li><span class="skill-category">Backend:</span> Django, Django Rest Framework (DRF), Laravel</li>
+                <li><span class="skill-category">Data/DB:</span> MySQL, Neo4j (Graph DB), Big Data Analytics</li>
+                <li><span class="skill-category">DevOps/Tools:</span> Docker, Nginx, Git, Linux, n8n (Automation)</li>
             </ul>
-        </section>
-
-        <!-- Research Section -->
-        <section id="research" class="research">
-            <h2>Research</h2>
-            <p>My research focuses on the intersection of machine learning and natural language processing. I have worked extensively with <strong>Retrieval-Augmented Generation (RAG)</strong> frameworks and <strong>Large Language Models (LLMs)</strong>.</p>
-            <p style="margin-top: 20px;">
-                <a href="scholar.google.com/citations?user=6Swd-2sAAAAJ&hl=en" class="link-accent" target="_blank">
-                    View Publications on Google Scholar <i class="fas fa-arrow-right" style="font-size: 0.8rem; margin-left: 5px;"></i>
-                </a>
-            </p>
         </section>
 
         <!-- Contact Section -->
         <section class="contact-info">
             <h2>Get In Touch</h2>
-            <p>I'm always open to discussing new projects, research opportunities, or tech trends.</p>
+            <p>I'm open to Machine Learning Engineer roles and collaborative research opportunities.</p>
             
             <div class="contact-grid">
                 <a href="mailto:hossein.bahak@gmail.com" class="contact-card">
@@ -490,36 +624,8 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Hossein Bahak. All Rights Reserved.</p>
-        
-        <div class="visit-counter">
-            <i class="fas fa-eye"></i>
-            <span id="visitCount">Loading...</span> &nbsp;views
-        </div>
+        <p>&copy; 2025 Hossein Bahak. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // NOTE: This uses LocalStorage. It counts visits for *this specific user/browser*.
-            // A true global counter requires a backend database.
-            
-            const storageKey = 'hb_portfolio_visits';
-            
-            // Get current count from storage or default to some starting number (e.g., 120)
-            let count = parseInt(localStorage.getItem(storageKey)) || 120;
-            
-            // Increment
-            count++;
-            
-            // Save back
-            localStorage.setItem(storageKey, count);
-            
-            // Display
-            const counterElement = document.getElementById('visitCount');
-            if(counterElement) {
-                counterElement.textContent = count;
-            }
-        });
-    </script>
 </body>
 </html>
