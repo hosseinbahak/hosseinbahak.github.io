@@ -343,18 +343,25 @@
             margin-top: 30px;
         }
         .service-item {
-            background: rgba(255,255,255,0.03);
-            padding: 20px;
+            background: var(--bg-card);
+            padding: 1.5rem;
             border-radius: 12px;
-            text-align: center;
-            font-weight: 600;
-            color: white;
-            border: 1px solid var(--border-color);
-            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            
+            /* FLEXBOX CENTERING MAGIC */
+            display: flex;            /* Turns on Flexbox */
+            justify-content: center;  /* Centers content Vertically */
+            align-items: center;      /* Centers content Horizontally */
+            text-align: center;       /* Ensures multi-line text is centered */
+            flex-direction: column;   /* Stacks text cleanly */
+            height: 100%;             /* Forces the box to fill the grid height */
+            min-height: 80px;         /* Optional: Ensures a nice minimum size */
         }
         .service-item:hover {
-            border-color: var(--accent-color);
-            background: rgba(56, 189, 248, 0.05);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background: rgba(30, 41, 59, 0.9);
         }
 
         .project-grid {
