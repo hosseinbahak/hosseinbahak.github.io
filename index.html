@@ -3,22 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hossein Bahak | Software Engineer & NLP Enthusiast</title>
-    <!-- Font Awesome CDN for icons -->
+    <title>Hossein Bahak | AI & Software Engineer</title>
+    
+    <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #0f172a; /* Deep Navy */
-            --secondary: #334155; /* Slate */
-            --accent: #0ea5e9; /* Sky Blue */
-            --accent-dark: #0284c7;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            /* Color Palette - Deep Space Theme */
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7); /* Glass effect base */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            
+            /* The "AI" Gradient */
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --accent-color: #38bdf8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            
+            --blur: 12px;
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -32,23 +41,38 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--secondary);
-            line-height: 1.7;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* --- Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* --- Navigation --- */
         nav {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            box-shadow: var(--shadow-sm);
+            padding: 20px 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(var(--blur));
+            border-bottom: 1px solid var(--border-color);
         }
 
         .nav-container {
@@ -61,217 +85,261 @@
         }
 
         .logo {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: white;
             text-decoration: none;
+            letter-spacing: -1px;
+        }
+        .logo span { color: var(--accent-color); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
         }
 
         .nav-links a {
-            margin-left: 20px;
             text-decoration: none;
-            color: var(--secondary);
+            color: var(--text-muted);
+            font-size: 0.95rem;
             font-weight: 500;
-            font-size: 0.9rem;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--accent-color);
         }
 
         /* --- Hero Section --- */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
-            color: white;
-            padding: 180px 0 120px;
+            padding: 180px 0 100px;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
-            margin-bottom: 50px;
+            position: relative;
         }
 
-        header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, #fff, #94a3b8);
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeInDown 0.8s ease-out;
+            letter-spacing: -2px;
         }
 
-        header p {
-            font-size: 1.3rem;
-            font-weight: 300;
-            color: #cbd5e1;
-            max-width: 700px;
-            margin: 0 auto;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        .hero-role {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-weight: 500;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .location {
+        .hero-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.05);
+            padding: 8px 16px;
+            border-radius: 50px;
             font-size: 0.9rem;
-            color: var(--accent);
-            margin-top: 10px;
-            display: block;
-            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
         }
 
         .social-hero {
-            margin-top: 30px;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .social-hero a {
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: transform 0.3s, color 0.3s;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            font-size: 1.2rem;
         }
 
-        .social-hero a:hover {
-            color: var(--accent);
-            transform: translateY(-3px);
+        .social-btn:hover {
+            background: var(--accent-gradient);
+            transform: translateY(-5px);
+            border-color: transparent;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
         }
 
         /* --- Main Layout --- */
         .container {
             width: 90%;
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding-bottom: 60px;
+            padding-bottom: 80px;
         }
 
+        /* Glassmorphism Card Style for Sections */
         section {
-            background-color: white;
-            margin-bottom: 30px;
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid rgba(0,0,0,0.03);
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        section:hover {
-            box-shadow: var(--shadow-md);
+            background: var(--bg-card);
+            backdrop-filter: blur(var(--blur));
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
         }
 
         h2 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 2rem;
-            margin-bottom: 30px;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
+            margin-bottom: 40px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        h2::after {
+        h2::before {
             content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 40px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
-
-        h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .subtitle {
-            font-size: 0.95rem;
-            color: var(--accent-dark);
-            font-weight: 600;
-            margin-bottom: 15px;
             display: block;
-        }
-
-        .date-loc {
-            font-size: 0.85rem;
-            color: #64748b;
-            margin-bottom: 10px;
-            display: block;
+            width: 8px;
+            height: 30px;
+            background: var(--accent-gradient);
+            border-radius: 4px;
         }
 
         p {
-            color: #475569;
-            margin-bottom: 15px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
         }
-        
-        ul.dashed-list {
-            list-style-type: none;
-            padding-left: 10px;
-        }
-        
-        ul.dashed-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            color: #475569;
-        }
-        
-        ul.dashed-list li::before {
-            content: '-';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
+
+        strong {
+            color: white;
+            font-weight: 600;
         }
 
         /* --- Services Grid --- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-        }
-        .service-item {
-            background: var(--bg-light);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-            color: var(--primary);
-            border: 1px solid #e2e8f0;
+            margin-top: 30px;
         }
 
-        /* --- Timeline (Work Experience) --- */
+        .service-item {
+            background: rgba(255,255,255,0.03);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: white;
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+        .service-item:hover {
+            border-color: var(--accent-color);
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        /* --- Experience Timeline --- */
+        .timeline {
+            position: relative;
+            padding-left: 10px;
+        }
+
         .timeline-item {
             position: relative;
-            padding-left: 30px;
-            padding-bottom: 40px;
-            border-left: 2px solid #e2e8f0;
+            padding-left: 40px;
+            padding-bottom: 50px;
+            border-left: 2px solid rgba(255,255,255,0.1);
         }
 
         .timeline-item:last-child {
             padding-bottom: 0;
-            border-left: 2px solid transparent; 
+            border-left: 2px solid transparent;
         }
 
-        .timeline-item::before {
-            content: '';
+        .timeline-dot {
             position: absolute;
-            left: -8px;
-            top: 6px;
-            width: 14px;
-            height: 14px;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            background-color: var(--accent);
-            border: 3px solid white;
-            box-shadow: 0 0 0 2px var(--accent);
+            background: var(--accent-gradient);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            align-items: baseline;
+        }
+
+        .job-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .company-name {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .job-meta {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-family: monospace;
+            background: rgba(0,0,0,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        ul.dashed-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul.dashed-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        ul.dashed-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
         }
 
         /* --- Projects Grid --- */
         .project-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 25px;
         }
         
         @media(min-width: 768px) {
@@ -281,127 +349,127 @@
         }
 
         .project-card {
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 25px;
-            transition: transform 0.2s;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
+            transform: translateY(-7px);
+            border-color: rgba(129, 140, 248, 0.5);
+            background: rgba(255,255,255,0.04);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+        }
+
+        .project-card h3 {
+            font-family: 'Outfit', sans-serif;
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .project-date {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* --- Skills Section --- */
-        .skills ul {
-            list-style: none;
+        .skills-wrapper {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .skills li {
-            background-color: #f1f5f9;
-            color: var(--primary);
+        .skill-group h4 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
             padding: 8px 16px;
             border-radius: 50px;
             font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
         }
 
-        .skills li:hover {
-            background-color: var(--accent);
+        .skill-pill:hover {
+            background: rgba(56, 189, 248, 0.1);
             color: white;
-            border-color: var(--accent);
+            border-color: var(--accent-color);
         }
+
+        /* --- Honors & Publications --- */
+        .honor-card {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        .honor-card:last-child { margin-bottom: 0; }
         
-        .skill-category {
-            font-weight: 700;
-            color: var(--secondary);
-            margin-right: 5px;
-        }
-
-        /* --- Publication & Honors --- */
-        .pub-item, .honor-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-        .pub-item:last-child, .honor-item:last-child {
-            border-bottom: none;
-        }
-
-        /* --- Contact Grid --- */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .contact-card {
-            background: #f8fafc;
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid #e2e8f0;
-        }
-
-        .contact-card:hover {
-            background: var(--white);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--accent);
-        }
-
-        .contact-card i {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        .contact-card span {
-            display: block;
-            color: var(--primary);
-            font-weight: 600;
+        .honor-card h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-family: 'Outfit', sans-serif;
         }
 
         /* --- Footer --- */
         footer {
-            background-color: var(--primary);
-            color: #94a3b8;
-            padding: 40px 0;
             text-align: center;
+            padding: 50px 0;
+            color: var(--text-muted);
             font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
             margin-top: 40px;
         }
         
-        a.link-accent {
-            color: var(--accent);
+        .contact-cta {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .btn-main {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+            transition: 0.3s;
+        }
+        
+        .btn-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 30px rgba(56, 189, 248, 0.6);
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive */
-        @media screen and (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            section { padding: 25px; }
-            .nav-links { display: none; } 
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            section { padding: 30px 20px; }
+            .nav-links { display: none; } /* Could add a hamburger menu here */
+            .job-header { flex-direction: column; }
+            .job-meta { margin-top: 5px; }
         }
     </style>
 </head>
@@ -409,223 +477,263 @@
 
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">HB.</a>
+            <a href="#" class="logo">HB<span>.</span></a>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
-                <a href="#publications">Publications</a>
                 <a href="#skills">Skills</a>
+                <a href="mailto:hossein.bahak@gmail.com" style="color: var(--accent-color);">Hire Me</a>
             </div>
         </div>
     </nav>
 
     <header>
-        <div class="container">
+        <div class="container reveal active">
             <h1>Hossein Bahak</h1>
-            <p>Software Engineer | NLP Enthusiast | Machine Learning Engineer</p>
-            <span class="location"><i class="fas fa-map-marker-alt"></i> Iran &bull; 500+ Connections</span>
+            <div class="hero-role">Software Engineer | NLP Enthusiast | Machine Learning Engineer</div>
             
+            <div class="hero-location">
+                <i class="fas fa-map-marker-alt" style="color: var(--accent-color)"></i> Isfahan, Iran &nbsp;|&nbsp; 
+                <i class="fas fa-users" style="color: var(--accent-color)"></i> 500+ Connections
+            </div>
+
             <div class="social-hero">
-                <a href="https://github.com/hosseinbahak" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:hossein.bahak@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/hosseinbahak" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:hossein.bahak@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+                <a href="http://www.t.me/hosseinbahak" target="_blank" class="social-btn"><i class="fab fa-telegram"></i></a>
             </div>
         </div>
     </header>
 
     <div class="container">
         
-        <!-- About Me Section -->
-        <section id="about" class="about-me">
+        <!-- About Section -->
+        <section id="about" class="reveal">
             <h2>About Me</h2>
-            <p>Experienced Software Engineer with a background in the Computer Software industry. Proficient in <strong>Python, C++, and PHP</strong>. I possess a solid foundation in Computer Engineering (Bachelor's degree) and specialized expertise in Software Engineering (Master's degree).</p>
-            <p>Dedicated to continuous learning, I am currently honing my skills in developing <strong>high-level recommender systems and chatbots</strong>, aiming to contribute to the forefront of artificial intelligence and enhance user experiences.</p>
+            <p>I am an experienced <strong>Software Engineer</strong> with a deep passion for bridging the gap between traditional software development and cutting-edge <strong>Artificial Intelligence</strong>. With a Master's in Software Engineering and a Bachelor's in Computer Engineering, I possess a versatile skillset that ranges from low-level C++ to high-level Python AI pipelines.</p>
+            <p>Currently, I am honing my skills in developing advanced recommender systems and chatbots, aiming to contribute to the forefront of AI and enhance user experiences. I am an <strong>Open to Work</strong> candidate for Machine Learning Engineer roles.</p>
             
-            <h3 style="margin-top: 30px; font-size: 1.1rem;">Services</h3>
             <div class="services-grid">
-                <div class="service-item">Application Development</div>
+                <div class="service-item">Application Dev</div>
                 <div class="service-item">Web Development</div>
-                <div class="service-item">Database Development</div>
+                <div class="service-item">Database Architecture</div>
                 <div class="service-item">SaaS Development</div>
             </div>
         </section>
 
-        <!-- Experience Section (Timeline) -->
-        <section id="experience" class="work-experience">
+        <!-- Experience Section -->
+        <section id="experience" class="reveal">
             <h2>Experience</h2>
-            
-            <!-- Radshid -->
-            <div class="timeline-item">
-                <h3>Machine Learning Engineer</h3>
-                <span class="subtitle">Radshid Co | Jul 2024 - Present</span>
-                <span class="date-loc">Isfahan, Iran (On-site)</span>
-                <ul class="dashed-list">
-                    <li><strong>Computer Vision:</strong> Enhanced thousands of product images by reducing noise and removing irrelevant elements using PyTorch, ResNet, and diffusion models.</li>
-                    <li><strong>NLP Engineering:</strong> Developing a locally hosted chatbot optimized for LLMs and SLMs, leveraging LangGraph to enable multi-phase answer generation conversational AI workflows.</li>
-                    <li><strong>Automation:</strong> Implemented multiple automation pipelines using n8n and LangGraph for system reporting, content generation, and Telegram-based assistance.</li>
-                </ul>
-            </div>
+            <div class="timeline">
+                
+                <!-- Radshid -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="company-name">Radshid Co</span>
+                    <div class="job-header">
+                        <span class="job-title">Machine Learning Engineer</span>
+                        <span class="job-meta">Jul 2024 - Present • On-site</span>
+                    </div>
+                    <ul class="dashed-list">
+                        <li><strong>Computer Vision:</strong> Enhanced thousands of product images by reducing noise/removing elements using PyTorch, ResNet, and diffusion models.</li>
+                        <li><strong>NLP Engineering:</strong> Developing a locally hosted chatbot optimized for LLMs and SLMs, leveraging LangGraph for multi-phase workflows.</li>
+                        <li><strong>Automation:</strong> Implemented pipelines using n8n and LangGraph for system reporting and content generation.</li>
+                    </ul>
+                </div>
 
-            <!-- Kartaak -->
-            <div class="timeline-item">
-                <h3>Head of Server-side Team</h3>
-                <span class="subtitle">Kartaak Co | Jun 2023 - Jan 2025</span>
-                <span class="date-loc">Isfahan, Iran</span>
-                <ul class="dashed-list">
-                    <li>Led the server-side development team, overseeing backend architecture built with Django Rest Framework (DRF).</li>
-                    <li>Focus on developing a recommender system utilizing a <strong>two-tower neural network model</strong>.</li>
-                    <li>Designed algorithms leveraging user experience and behavioral similarity metrics to drive higher user engagement.</li>
-                    <li><strong>DevOps (Jun - Oct 2023):</strong> Dockerized back-end applications for scalability; Configured server environments with Nginx.</li>
-                </ul>
-            </div>
+                <!-- Kartaak -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="company-name">Kartaak Co</span>
+                    <div class="job-header">
+                        <span class="job-title">Head of Server-side Team</span>
+                        <span class="job-meta">Jun 2023 - Jan 2025</span>
+                    </div>
+                    <ul class="dashed-list">
+                        <li>Led backend architecture built with Django Rest Framework (DRF).</li>
+                        <li>Developed a recommender system utilizing a <strong>two-tower neural network model</strong>.</li>
+                        <li>Designed algorithms leveraging user experience and behavioral similarity metrics.</li>
+                        <li><strong>DevOps:</strong> Dockerized back-end applications and configured Nginx environments.</li>
+                    </ul>
+                </div>
 
-            <!-- University of Isfahan -->
-            <div class="timeline-item">
-                <h3>Course Instructor</h3>
-                <span class="subtitle">University of Isfahan | Sep 2023 - Feb 2024</span>
-                <span class="date-loc">Isfahan, Iran</span>
-                <p>Instructor for Fundamental programming in C++ and Database systems (MySQL).</p>
-            </div>
+                <!-- University of Isfahan -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="company-name">University of Isfahan</span>
+                    <div class="job-header">
+                        <span class="job-title">Course Instructor</span>
+                        <span class="job-meta">Sep 2023 - Feb 2024</span>
+                    </div>
+                    <p>Instructor for Fundamental programming in C++ and Database systems (MySQL).</p>
+                </div>
 
-            <!-- Arosha Tabnak Espadana -->
-            <div class="timeline-item">
-                <h3>Head of Back-end Team</h3>
-                <span class="subtitle">Arosha Tabnak Espadana | Sep 2022 - Jul 2023</span>
-                <span class="date-loc">Isfahan, Iran</span>
-                <ul class="dashed-list">
-                    <li>Spearheaded development of a robust backend using Django & DRF.</li>
-                    <li>Optimized application flow and API performance; Designed comprehensive database schemas.</li>
-                    <li>Pioneered Web Sockets development for order processing.</li>
-                </ul>
-            </div>
+                <!-- Arosha Tabnak -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="company-name">Arosha Tabnak Espadana</span>
+                    <div class="job-header">
+                        <span class="job-title">Head of Back-end Team</span>
+                        <span class="job-meta">Sep 2022 - Jul 2023</span>
+                    </div>
+                    <ul class="dashed-list">
+                        <li>Spearheaded backend development using Django & DRF.</li>
+                        <li>Optimized application flow and implemented Web Sockets for order processing.</li>
+                    </ul>
+                </div>
 
-            <!-- Semnan University -->
-            <div class="timeline-item">
-                <h3>Teacher Assistant</h3>
-                <span class="subtitle">Semnan University | Jan 2018 - Feb 2019</span>
-                <span class="date-loc">Semnan, Iran</span>
-                <p>Provided guidance in C++ Programming, Compiler Design (CD), and Artificial Intelligence (AI) courses.</p>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects">
+        <section id="projects" class="reveal">
             <h2>Featured Projects</h2>
             <div class="project-grid">
-                <!-- Project 1 -->
+                
                 <div class="project-card">
-                    <h3>Data Preparation & Model Integration (LoRA → Ollama)</h3>
-                    <span class="date-loc">Jun 2024 – Nov 2025</span>
-                    <p>Designed a workflow for preparing CSV-based datasets for fine-tuning LLMs using PEFT/LoRA. Automated the conversion of training outputs (adapters) into deployable Ollama models, including GGUF conversion workflows for optimized inference.</p>
+                    <div class="project-date">Jun 2024 – Nov 2025</div>
+                    <h3>Data Preparation & Fine-Tuning (LoRA → Ollama)</h3>
+                    <p>Designed a workflow for preparing CSV-based datasets for fine-tuning LLMs using PEFT/LoRA. Automated conversion of training outputs into deployable Ollama models and GGUF formats.</p>
                 </div>
                 
-                <!-- Project 2 -->
                 <div class="project-card">
-                    <h3>Knowledge Graph from PDFs (OCR → LLM → Neo4j)</h3>
-                    <span class="date-loc">Jul 2024 – Nov 2025</span>
-                    <p>Developed a full-stack document intelligence system. Used BERTopic for semantic grouping and executed automated graph construction to produce Cypher import scripts for a rich Neo4j knowledge graph (concepts, authors, fields).</p>
+                    <div class="project-date">Jul 2024 – Nov 2025</div>
+                    <h3>Knowledge Graph from PDFs</h3>
+                    <p>Full-stack document intelligence system. Utilized OCR, LLMs, and BERTopic for semantic grouping. Automated graph construction to produce Cypher import scripts for Neo4j.</p>
                 </div>
 
-                <!-- Project 3 -->
                 <div class="project-card">
-                    <h3>Multi-Agent LLM Judge Framework (MSc Thesis)</h3>
-                    <span class="date-loc">2024 - 2025</span>
-                    <p>A framework deploying four autonomous AI agents with specialized cognitive roles. They independently analyze inputs, engage in structured debates to reach consensus, and include a Sentinel agent for adversarial testing and self-improvement.</p>
+                    <div class="project-date">MSc Thesis</div>
+                    <h3>Multi-Agent LLM Judge Framework</h3>
+                    <p>A framework deploying four autonomous AI agents with specialized cognitive roles that debate to reach consensus. Includes a Sentinel agent for adversarial testing and self-improvement.</p>
                 </div>
 
-                <!-- Project 4 -->
                 <div class="project-card">
-                    <h3>Nesha Laboratory Simulator (BSc Thesis)</h3>
-                    <span class="date-loc">2020 - 2021</span>
-                    <p>A software-based framework for university lab projects during the COVID-19 pandemic. Built with Django Rest Framework (DRF) for backend and ReactJS for frontend.</p>
+                    <div class="project-date">BSc Thesis</div>
+                    <h3>Nesha Laboratory Simulator</h3>
+                    <p>A web-based simulator for university lab projects during COVID-19. Built with Django Rest Framework and ReactJS to allow virtual access to laboratory tools.</p>
                 </div>
-            </div>
-        </section>
 
-        <!-- Education Section -->
-        <section class="education">
-            <h2>Education</h2>
-            <div class="timeline-item">
-                <h3>Master's degree, Computer Software Engineering</h3>
-                <span class="subtitle">University of Isfahan | Sep 2022 – Oct 2025</span>
-                <p><strong>Thesis:</strong> Multi-Agent LLM Judge Framework.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Bachelor's degree, Computer Engineering</h3>
-                <span class="subtitle">Semnan University | Sep 2017 – Jan 2021</span>
-                <p><strong>Thesis:</strong> Nesh (Laboratory Simulator).</p>
-            </div>
-        </section>
-
-        <!-- Publications -->
-        <section id="publications">
-            <h2>Publications</h2>
-            
-            <div class="pub-item">
-                <h3>Evaluating ChatGPT as a Question Answering System</h3>
-                <span class="subtitle">Journal of Computing and Security (JCS) | Sep 2024</span>
-                <p><em>Awarded Best Paper (Volume 11, Issue 2).</em> A comprehensive analysis and comparison with existing models.</p>
-            </div>
-            
-            <div class="pub-item">
-                <h3>Drug Demand Forecasting</h3>
-                <span class="subtitle">Journal of Medical Signals & Sensors | Feb 2025</span>
-                <p>Presented at Isfahan Artificial Intelligence Event 2023.</p>
-            </div>
-        </section>
-
-        <!-- Honors -->
-        <section id="honors">
-            <h2>Honors & Awards</h2>
-            <div class="honor-item">
-                <h3>Third Place in Artificial Intelligence Competition</h3>
-                <span class="subtitle">National Elites Foundation | Feb 2024</span>
-                <p>Demonstrated AI techniques and problem-solving skills, competing among ~140 teams. Associated with University of Isfahan.</p>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li><span class="skill-category">Core:</span> Python, C++, PHP</li>
-                <li><span class="skill-category">AI/ML:</span> PyTorch, ResNet, Diffusion Models, LLMs, LangGraph, Ollama, BERTopic, Computer Vision</li>
-                <li><span class="skill-category">Backend:</span> Django, Django Rest Framework (DRF), Laravel</li>
-                <li><span class="skill-category">Data/DB:</span> MySQL, Neo4j (Graph DB), Big Data Analytics</li>
-                <li><span class="skill-category">DevOps/Tools:</span> Docker, Nginx, Git, Linux, n8n (Automation)</li>
-            </ul>
-        </section>
+        <section id="skills" class="reveal">
+            <h2>Technical Arsenal</h2>
+            <div class="skills-wrapper">
+                
+                <div class="skill-group">
+                    <h4>Languages & Core</h4>
+                    <div class="skills-list">
+                        <div class="skill-pill">Python</div>
+                        <div class="skill-pill">C++</div>
+                        <div class="skill-pill">PHP</div>
+                        <div class="skill-pill">SQL</div>
+                    </div>
+                </div>
 
-        <!-- Contact Section -->
-        <section class="contact-info">
-            <h2>Get In Touch</h2>
-            <p>I'm open to Machine Learning Engineer roles and collaborative research opportunities.</p>
-            
-            <div class="contact-grid">
-                <a href="mailto:hossein.bahak@gmail.com" class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email Me</span>
-                </a>
-                <a href="https://github.com/hosseinbahak" target="_blank" class="contact-card">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank" class="contact-card">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="http://www.t.me/hosseinbahak" target="_blank" class="contact-card">
-                    <i class="fab fa-telegram"></i>
-                    <span>Telegram</span>
-                </a>
+                <div class="skill-group">
+                    <h4>AI & Machine Learning</h4>
+                    <div class="skills-list">
+                        <div class="skill-pill">PyTorch</div>
+                        <div class="skill-pill">ResNet</div>
+                        <div class="skill-pill">Diffusion Models</div>
+                        <div class="skill-pill">LLMs & RAG</div>
+                        <div class="skill-pill">LangGraph</div>
+                        <div class="skill-pill">Ollama</div>
+                        <div class="skill-pill">BERTopic</div>
+                        <div class="skill-pill">Computer Vision</div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Web & DevOps</h4>
+                    <div class="skills-list">
+                        <div class="skill-pill">Django (DRF)</div>
+                        <div class="skill-pill">Laravel</div>
+                        <div class="skill-pill">Docker</div>
+                        <div class="skill-pill">Nginx</div>
+                        <div class="skill-pill">Git</div>
+                        <div class="skill-pill">Linux</div>
+                        <div class="skill-pill">n8n Automation</div>
+                    </div>
+                </div>
+
             </div>
         </section>
+
+        <!-- Publications & Honors -->
+        <section id="publications" class="reveal">
+            <h2>Publications & Honors</h2>
+            
+            <div class="honor-card">
+                <h3>Evaluating ChatGPT as a QA System</h3>
+                <span style="color: var(--accent-color); font-size: 0.9rem;">Sep 2024 | Journal of Computing and Security</span>
+                <p><strong>Awarded Best Paper (Vol 11, Issue 2).</strong> A comprehensive analysis and comparison with existing models.</p>
+            </div>
+            
+            <div class="honor-card">
+                <h3>Drug Demand Forecasting</h3>
+                <span style="color: var(--accent-color); font-size: 0.9rem;">Feb 2025 | Journal of Medical Signals & Sensors</span>
+                <p>Presented at Isfahan Artificial Intelligence Event 2023.</p>
+            </div>
+
+            <div class="honor-card">
+                <h3>3rd Place - Artificial Intelligence Competition</h3>
+                <span style="color: var(--accent-color); font-size: 0.9rem;">Feb 2024 | National Elites Foundation</span>
+                <p>Demonstrated expert AI techniques and problem-solving skills, competing among ~140 teams.</p>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="reveal">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="company-name">University of Isfahan</span>
+                    <span class="job-title" style="display:block;">Master of Science, Software Engineering</span>
+                    <span class="job-meta">2022 – 2025</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="company-name">Semnan University</span>
+                    <span class="job-title" style="display:block;">Bachelor of Science, Computer Engineering</span>
+                    <span class="job-meta">2017 – 2021</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="contact-cta reveal">
+            <h2>Ready to Collaborate?</h2>
+            <p>I'm currently looking for new opportunities in Machine Learning and Software Engineering.</p>
+            <a href="mailto:hossein.bahak@gmail.com" class="btn-main">Get In Touch</a>
+        </div>
+
     </div>
 
     <footer>
-        <p>&copy; 2025 Hossein Bahak. All Rights Reserved.</p>
+        <p>&copy; 2025 Hossein Bahak. Crafted with <i class="fas fa-code"></i> & <i class="fas fa-heart"></i></p>
     </footer>
 
+    <script>
+        // Simple Scroll Reveal Script
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
 </body>
 </html>
