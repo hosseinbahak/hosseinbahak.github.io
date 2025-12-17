@@ -64,6 +64,20 @@
             border-bottom: 1px solid var(--border-color);
         }
 
+        /* Add this for the bullet points inside Project Cards */
+        .project-details {
+            text-align: left;
+            margin-top: 1rem;
+            padding-left: 1.2rem; /* Indent bullets slightly */
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .project-details li {
+            margin-bottom: 0.5rem; /* Space between bullet points */
+        }
+
         .nav-container {
             width: 90%;
             max-width: 1200px;
@@ -579,33 +593,61 @@
         <section id="projects">
             <h2>Featured Projects</h2>
             <div class="project-grid">
-                
+        
+                <!-- Project 1: LoRA -> Ollama -->
                 <div class="project-card">
                     <div class="project-date">Jun 2024 – Nov 2025</div>
-                    <h3>Data Preparation & Fine-Tuning (LoRA → Ollama)</h3>
-                    <p>Designed a workflow for preparing CSV-based datasets for fine-tuning LLMs using PEFT/LoRA. Automated conversion of training outputs into deployable Ollama models and GGUF formats.</p>
+                    <h3>Data Preparation & Model Integration (LoRA → Ollama)</h3>
+                    <ul class="project-details">
+                        <li>Designed and implemented a complete workflow for preparing CSV-based datasets for fine-tuning LLM using PEFT/LoRA.</li>
+                        <li>Developed documentation and automation for converting training outputs (e.g., adapter_model.safetensors, adapter_config.json) into deployable Ollama models.</li>
+                        <li>Provided guidance for optional LoRA-merge and GGUF conversion workflows for optimized inference.</li>
+                    </ul>
                 </div>
-                
+        
+                <!-- Project 2: Knowledge Graph -->
                 <div class="project-card">
                     <div class="project-date">Jul 2024 – Nov 2025</div>
-                    <h3>Knowledge Graph from PDFs</h3>
-                    <p>Full-stack document intelligence system. Utilized OCR, LLMs, and BERTopic for semantic grouping. Automated graph construction to produce Cypher import scripts for Neo4j.</p>
+                    <h3>Knowledge Graph creation of PDF data</h3>
+                    <ul class="project-details">
+                        <li>Developed a full-stack document intelligence system for extracting structured knowledge from PDFs (OCR → LLM/VLM → Neo4j).</li>
+                        <li>Built topic-modeling components using BERTopic for clustering and semantic grouping of concepts.</li>
+                        <li>Designed automated graph construction, producing Cypher import scripts for a rich Neo4j knowledge graph.</li>
+                    </ul>
                 </div>
-
+        
+                <!-- Project 3: Multimodal Chatbot (NEW) -->
+                <div class="project-card">
+                    <div class="project-date">Jun 2024 – Nov 2025</div>
+                    <h3>Multimodal Chatbot & Visual Anomaly Detection</h3>
+                    <ul class="project-details">
+                        <li>Designed an integrated system interpreting text and images using locally hosted vision–language models.</li>
+                        <li>Built a unified pipeline for zero-shot/few-shot anomaly detection using WinCLIP-based feature extraction.</li>
+                        <li>Implemented custom dataset loaders, OCR/visual pipelines, and gallery-building mechanisms for embeddings.</li>
+                    </ul>
+                </div>
+        
+                <!-- Project 4: MSc Thesis -->
                 <div class="project-card">
                     <div class="project-date">MSc Thesis</div>
                     <h3>Multi-Agent LLM Judge Framework</h3>
-                    <p>A framework deploying four autonomous AI agents with specialized cognitive roles that debate to reach consensus. Includes a Sentinel agent for adversarial testing and self-improvement.</p>
+                    <p style="margin-top: 1rem; color: var(--text-secondary);">
+                        A framework deploying four autonomous AI agents with specialized cognitive roles that debate to reach consensus. Includes a Sentinel agent for adversarial testing and self-improvement.
+                    </p>
                 </div>
-
+        
+                <!-- Project 5: BSc Thesis -->
                 <div class="project-card">
                     <div class="project-date">BSc Thesis</div>
                     <h3>Nesha Laboratory Simulator</h3>
-                    <p>A web-based simulator for university lab projects during COVID-19. Built with Django Rest Framework and ReactJS to allow virtual access to laboratory tools.</p>
+                    <p style="margin-top: 1rem; color: var(--text-secondary);">
+                        A web-based simulator for university lab projects during COVID-19. Built with Django Rest Framework and ReactJS to allow virtual access to laboratory tools.
+                    </p>
                 </div>
-
+        
             </div>
         </section>
+
 
         <!-- Skills Section -->
         <section id="skills">
