@@ -210,6 +210,163 @@
             .projects-grid, .stats-bar { grid-template-columns: 1fr; }
             .stat-item { border: none; border-bottom: 1px solid var(--glass-border); padding: 20px; }
         }
+        :root {
+    --bg-dark: #020617;
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --blue-glow: #3b82f6;
+    }
+    
+    .impossible-cta {
+        background-color: var(--bg-dark);
+        padding: 160px 0;
+        text-align: center;
+        color: var(--text-main);
+        font-family: 'Inter', sans-serif;
+    }
+    
+    /* Main Heading Style */
+    .cta-title {
+        font-size: 7.5rem; /* Massive font size */
+        font-weight: 800;
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+    }
+    
+    /* The Gradient Text ("Impossible.") */
+    .gradient-text {
+        background: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    /* Subtitle Style */
+    .cta-subtitle {
+        color: var(--text-muted);
+        font-size: 1.15rem;
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* The decorative circle and dot on the letter 'L' */
+    .decorator {
+        position: absolute;
+        top: 15%;
+        left: -10px;
+        width: 60px;
+        height: 60px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+    }
+    
+    .decorator .dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--blue-glow);
+        border-radius: 50%;
+        box-shadow: 0 0 12px var(--blue-glow);
+    }
+    
+    /* Mobile Responsiveness */
+    @media (max-width: 1024px) {
+        .cta-title { font-size: 5rem; }
+    }
+    
+    @media (max-width: 640px) {
+        .cta-title { font-size: 3.5rem; }
+        .cta-subtitle { font-size: 1rem; padding: 0 20px; }
+        .decorator { width: 40px; height: 40px; left: -5px; }
+    }
+            /* --- CTA SECTION STYLES --- */
+    .cta-section {
+        text-align: center;
+        padding: 150px 0;
+        border-top: 1px solid var(--glass-border);
+    }
+    
+    .cta-section h1 {
+        font-size: 6rem;
+        font-weight: 800;
+        line-height: 0.9;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-desc {
+        color: var(--text-dim);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 4rem auto;
+    }
+    
+    .email-link {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--text-main);
+        text-decoration: none;
+        border-bottom: 3px solid var(--primary-blue);
+        padding-bottom: 8px;
+        transition: var(--transition);
+        display: inline-block;
+    }
+    
+    .email-link:hover {
+        color: var(--primary-blue);
+        border-bottom-color: var(--primary-purple);
+    }
+    
+    /* Social Buttons Container */
+    .socials {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 60px;
+    }
+    
+    /* The Individual Circles */
+    .social-circle {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: 1px solid var(--glass-border);
+        background: var(--glass-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-dim);
+        text-decoration: none;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+    }
+    
+    .social-circle svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* Hover State for Circles */
+    .social-circle:hover {
+        color: var(--text-main);
+        border-color: var(--primary-blue);
+        background: rgba(59, 130, 246, 0.1);
+        transform: translateY(-8px) scale(1.1);
+        box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+    }
+    
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 768px) {
+        .cta-section h1 { font-size: 3.5rem; }
+        .email-link { font-size: 1.5rem; }
+        .social-circle { width: 50px; height: 50px; }
+    }
+            
     </style>
 </head>
 <body>
@@ -429,13 +586,39 @@
         </section>
 
         <!-- FINAL CTA -->
+        
+        <!-- FINAL CTA -->
         <section class="cta-section">
-            <h1>Let's Solve the <br><span class="gradient-text">Impossible.</span></h1>
-            <p style="margin-bottom: 3rem;">Open for research collaboration, senior ML engineering roles, and complex architectural consultations.</p>
+            <section class="impossible-cta">
+                <div class="container">
+                    <h2 class="cta-title">
+                        <span class="decorator">
+                            <span class="dot"></span>
+                        </span>
+                        Let's Solve the <br>
+                        <span class="gradient-text">Impossible.</span>
+                    </h2>
+                    <p class="cta-subtitle">
+                        Open for research collaboration, senior ML engineering roles,<br>
+                        and complex architectural consultations.
+                    </p>
+                </div>
+            </section>
             <a href="mailto:hossein.bahak@gmail.com" class="email-link">hossein.bahak@gmail.com</a>
+        
             <div class="socials">
-                <div class="social-circle">GH</div>
-                <div class="social-circle">IN</div>
+                <!-- GitHub -->
+                <a href="https://github.com/hosseinbahak" target="_blank" class="social-circle" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/hosseinbahak/" target="_blank" class="social-circle" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <!-- Google Scholar -->
+                <a href="https://scholar.google.com/citations?user=6Swd-2sAAAAJ&hl=en" target="_blank" class="social-circle" aria-label="Google Scholar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                </a>
             </div>
         </section>
 
