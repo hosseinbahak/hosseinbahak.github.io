@@ -210,6 +210,119 @@
             .projects-grid, .stats-bar { grid-template-columns: 1fr; }
             .stat-item { border: none; border-bottom: 1px solid var(--glass-border); padding: 20px; }
         }
+        :root {
+    --bg-deep: #020617;
+    --card-surface: #0b1120;
+    --text-main: #f8fafc;
+    --text-dim: #64748b;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+    --green: #10b981;
+    --orange: #f59e0b;
+    }
+    
+    .bio-philosophy-section {
+        background-color: var(--bg-deep);
+        padding: 100px 0;
+        color: var(--text-main);
+    }
+    
+    .bio-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+    
+    /* --- Left Side Text --- */
+    .section-idx { color: var(--blue); margin-right: 10px; }
+    .section-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 30px; }
+    .bio-text p { color: #94a3b8; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.7; }
+    .highlight-blue { color: var(--blue); font-weight: 600; }
+    .highlight-purple { color: var(--purple); font-weight: 600; }
+    
+    /* --- The Cards Grid --- */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+    
+    .skill-card {
+        background: var(--card-surface);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 35px 30px;
+        border-radius: 32px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 180px;
+        transition: transform 0.3s ease;
+    }
+    
+    .skill-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    /* Active State (First Card) */
+    .skill-card.active-blue {
+        border: 1px solid rgba(59, 130, 246, 0.5);
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
+    }
+    
+    /* Icons */
+    .card-icon { width: 32px; height: 32px; margin-bottom: 25px; }
+    .blue-icon { color: var(--blue); }
+    .purple-icon { color: var(--purple); }
+    .green-icon { color: var(--green); }
+    .orange-icon { color: var(--orange); }
+    
+    /* Typography inside cards */
+    .skill-card h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    
+    .skill-card p {
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: var(--text-dim);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    
+    /* --- The Decorative Circle on Card 1 --- */
+    .circle-graphic {
+        position: absolute;
+        top: 35px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        border: 1.5px solid rgba(59, 130, 246, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .inner-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--blue);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--blue);
+    }
+    
+    /* Responsive Grid */
+    @media (max-width: 992px) {
+        .bio-grid { grid-template-columns: 1fr; gap: 50px; }
+    }
+    
+    @media (max-width: 600px) {
+        .skills-grid { grid-template-columns: 1fr; }
+    }
     </style>
 </head>
 <body>
@@ -258,22 +371,68 @@
         </div>
 -->
         <!-- 01. BIOGRAPHY & PHILOSOPHY -->
-        <section id="biography">
-            <div class="section-header">
-                <h2><span class="section-idx">01.</span> Biography & Philosophy</h2>
-                <div class="line"></div>
-            </div>
-            <div class="bio-philosophy">
-                <div class="bio-content">
+        <section class="bio-philosophy-section">
+            <div class="container bio-grid">
+                
+                <!-- Left Side: Text -->
+                <div class="bio-text">
+                    <h2 class="section-title"><span class="section-idx">01.</span> Biography & Philosophy</h2>
                     <p>Born in 1998, I am a Linux and <strong>FOSS enthusiast</strong> who believes in the power of open engineering. My journey is defined by bridging the chasm between academic theory and industrial scalability.</p>
-                    <p>During my Master's at the <span style="color: var(--primary-blue)">University of Isfahan</span>, I focused on making Large Language Models more reliable by detecting reasoning flaws—a mission that has led to several high-impact publications, including ACL 2024.</p>
-                    <p>I specialize in <strong>Python</strong> and <strong>Django</strong>, but my true passion lies in the orchestration of AI: from RAG frameworks to agentic workflows using LangGraph.</p>
+                    <p>During my Master's at the <span class="highlight-blue">University of Isfahan</span>, I focused on making Large Language Models more reliable by detecting reasoning flaws—a mission that has led to several high-impact publications, including ACL 2024.</p>
+                    <p>I specialize in <span class="highlight-purple">Python</span> and <span class="highlight-purple">Django</span>, but my true passion lies in the orchestration of AI: from RAG frameworks to agentic workflows using LangGraph.</p>
                 </div>
-                <div class="phil-grid">
-                    <div class="phil-card"><h4>Full-Stack Dev</h4><p>Django • DRF • PHP • SQL</p></div>
-                    <div class="phil-card"><h4>AI Research</h4><p>NLP • LLMS • RAG • PyTorch</p></div>
-                    <div class="phil-card"><h4>Big Data</h4><p>Spark • Hadoop • Neo4j</p></div>
-                    <div class="phil-card"><h4>Infrastructure</h4><p>Linux • Docker • N8N</p></div>
+        
+                <!-- Right Side: The Grid of Cards -->
+                <div class="skills-grid">
+                    
+                    <!-- Card 1: Active/Blue -->
+                    <div class="skill-card active-blue">
+                        <div class="card-icon blue-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6M13 4l-2 16"/></svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Full-Stack Dev</h3>
+                            <p>DJANGO · DRF · PHP · SQL</p>
+                        </div>
+                        <!-- The Circle/Dot Graphic -->
+                        <div class="circle-graphic">
+                            <div class="inner-dot"></div>
+                        </div>
+                    </div>
+        
+                    <!-- Card 2: Purple -->
+                    <div class="skill-card">
+                        <div class="card-icon purple-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-5 0V4.5A2.5 2.5 0 019.5 2zM14.5 2a2.5 2.5 0 00-2.5 2.5v15a2.5 2.5 0 005 0V4.5A2.5 2.5 0 0014.5 2z"/></svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>AI Research</h3>
+                            <p>NLP · LLMS · RAG · PYTORCH</p>
+                        </div>
+                    </div>
+        
+                    <!-- Card 3: Green -->
+                    <div class="skill-card">
+                        <div class="card-icon green-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Big Data</h3>
+                            <p>SPARK · HADOOP · NEO4J</p>
+                        </div>
+                    </div>
+        
+                    <!-- Card 4: Orange -->
+                    <div class="skill-card">
+                        <div class="card-icon orange-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11V4h7M4 13v7h7M20 11V4h-7M20 13v7h-7"/></svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Infrastructure</h3>
+                            <p>LINUX · DOCKER · N8N</p>
+                        </div>
+                    </div>
+        
                 </div>
             </div>
         </section>
