@@ -86,6 +86,7 @@
         }
 
         /* --- 3. HERO SECTION --- */
+                /* --- 3. HERO SECTION --- */
         .hero { padding: 180px 0 80px; display: flex; align-items: center; justify-content: space-between; gap: 50px; }
         .hero-text { max-width: 600px; }
         .hero-badge { 
@@ -102,7 +103,56 @@
         .btn-outline:hover { background: rgba(255,255,255,0.05); }
 
         .hero-visual { position: relative; width: 450px; height: 450px; }
-        .placeholder-box { width: 100%; height: 100%; background: #27272a; border-radius: 60px; box-shadow: 0 40px 100px rgba(0,0,0,0.5); }
+        
+        /* UPDATED: Box container */
+        .placeholder-box { 
+            width: 100%; 
+            height: 100%; 
+            background: #27272a; 
+            border-radius: 60px; 
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5); 
+            overflow: hidden; /* Fixes the spilling issue */
+            border: 1px solid rgba(255,255,255,0.1); /* Adds the subtle border line */
+        }
+
+        /* NEW: Image styling */
+        .placeholder-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .msc-badge {
+            position: absolute; bottom: -20px; right: -20px; background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: 1.5rem 2.5rem; border-radius: 30px; text-align: center;
+        }
+        .msc-badge h2 { font-size: 2.5rem; font-weight: 800; }
+        .msc-badge span { font-size: 0.6rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700; }
+
+
+        .hero-visual { position: relative; width: 450px; height: 450px; }
+        /* Update this existing class */
+        .placeholder-box { 
+            width: 100%; 
+            height: 100%; 
+            background: #27272a; 
+            border-radius: 60px; 
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            
+            /* ADD THIS: effectively crops the image to the rounded corners */
+            overflow: hidden; 
+            border: 1px solid var(--glass-border); /* Optional: adds a subtle border line */
+        }
+        
+        /* ADD THIS NEW CLASS targeting the image inside */
+        .placeholder-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image fills the box without stretching */
+            display: block;
+        }
+
         .msc-badge {
             position: absolute; bottom: -20px; right: -20px; background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: 1.5rem 2.5rem; border-radius: 30px; text-align: center;
